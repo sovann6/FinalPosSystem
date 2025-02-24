@@ -41,6 +41,8 @@
             this.Picture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.panel_left = new System.Windows.Forms.Panel();
+            this.txtIncome = new Guna.UI2.WinForms.Guna2Button();
+            this.txtExpense = new Guna.UI2.WinForms.Guna2Button();
             this.panel_container = new Guna.UI2.WinForms.Guna2Panel();
             this.btnOrder = new Guna.UI2.WinForms.Guna2Button();
             this.btnCat = new Guna.UI2.WinForms.Guna2Button();
@@ -198,6 +200,8 @@
             // panel_left
             // 
             this.panel_left.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(161)))), ((int)(((byte)(75)))));
+            this.panel_left.Controls.Add(this.txtIncome);
+            this.panel_left.Controls.Add(this.txtExpense);
             this.panel_left.Controls.Add(this.guna2CirclePictureBox2);
             this.panel_left.Controls.Add(this.label1);
             this.panel_left.Controls.Add(this.panel_container);
@@ -211,6 +215,52 @@
             this.panel_left.Name = "panel_left";
             this.panel_left.Size = new System.Drawing.Size(289, 1061);
             this.panel_left.TabIndex = 3;
+            // 
+            // txtIncome
+            // 
+            this.txtIncome.Animated = true;
+            this.txtIncome.AutoRoundedCorners = true;
+            this.txtIncome.BackColor = System.Drawing.Color.Transparent;
+            this.txtIncome.BorderRadius = 31;
+            this.txtIncome.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.txtIncome.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.txtIncome.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.txtIncome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.txtIncome.FillColor = System.Drawing.Color.Transparent;
+            this.txtIncome.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold);
+            this.txtIncome.ForeColor = System.Drawing.Color.Black;
+            this.txtIncome.Image = ((System.Drawing.Image)(resources.GetObject("txtIncome.Image")));
+            this.txtIncome.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtIncome.ImageOffset = new System.Drawing.Point(25, 0);
+            this.txtIncome.Location = new System.Drawing.Point(10, 888);
+            this.txtIncome.Name = "txtIncome";
+            this.txtIncome.Size = new System.Drawing.Size(321, 64);
+            this.txtIncome.TabIndex = 10;
+            this.txtIncome.Text = "Income";
+            this.txtIncome.TextOffset = new System.Drawing.Point(10, 0);
+            // 
+            // txtExpense
+            // 
+            this.txtExpense.Animated = true;
+            this.txtExpense.AutoRoundedCorners = true;
+            this.txtExpense.BackColor = System.Drawing.Color.Transparent;
+            this.txtExpense.BorderRadius = 31;
+            this.txtExpense.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.txtExpense.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.txtExpense.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.txtExpense.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.txtExpense.FillColor = System.Drawing.Color.Transparent;
+            this.txtExpense.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold);
+            this.txtExpense.ForeColor = System.Drawing.Color.Black;
+            this.txtExpense.Image = ((System.Drawing.Image)(resources.GetObject("txtExpense.Image")));
+            this.txtExpense.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtExpense.ImageOffset = new System.Drawing.Point(25, 0);
+            this.txtExpense.Location = new System.Drawing.Point(11, 751);
+            this.txtExpense.Name = "txtExpense";
+            this.txtExpense.Size = new System.Drawing.Size(321, 64);
+            this.txtExpense.TabIndex = 9;
+            this.txtExpense.Text = "Expense";
+            this.txtExpense.TextOffset = new System.Drawing.Point(10, 0);
             // 
             // panel_container
             // 
@@ -370,5 +420,7 @@
         private Guna.UI2.WinForms.Guna2CircleButton LogOut;
         private System.Windows.Forms.Label Fullname;
         private Guna.UI2.WinForms.Guna2Panel Panel_Content;
+        private Guna.UI2.WinForms.Guna2Button txtIncome;
+        private Guna.UI2.WinForms.Guna2Button txtExpense;
     }
 }

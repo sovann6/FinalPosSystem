@@ -18,7 +18,7 @@ namespace POS_System
         public Main_Admin(string Fullname, byte[] Profile)
         {
             InitializeComponent();
-            buttonManager = new ButtonManager(new Guna2Button[] { btndashbaord, btemp, btPro, btcate, btOrder });
+            buttonManager = new ButtonManager(new Guna2Button[] { btndashbaord, btemp, btPro, btcate, btOrder,btnExpense,btnIncome });
             fULLNAME.Text = Fullname;
             
             if (Profile != null) { 
@@ -79,12 +79,14 @@ namespace POS_System
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
+            label_TEXT.Text = "Categories";
             contianer(new Folder_Forms.Category());
             buttonManager.SetActiveButton(btcate);
         }
 
         private void guna2Button5_Click(object sender, EventArgs e)
         {
+            label_TEXT.Text = "Orders";
             buttonManager.SetActiveButton(btOrder);
             contianer(new Folder_Forms.OrderForm());
         }
@@ -96,8 +98,27 @@ namespace POS_System
 
         private void LogOut_Click(object sender, EventArgs e)
         {
-            new Login().Show();
-            this.Hide();
+           DialogResult result= MessageBox.Show("Are you sure you want to logout?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                new Login().Show();
+                this.Hide();
+            }
+            else
+                return;
+            
+        }
+
+        private void txtIncome_Click(object sender, EventArgs e)
+        {
+            buttonManager.SetActiveButton(btnIncome);
+            label_TEXT.Text = "Income";
+        }
+
+        private void btnExpense_Click(object sender, EventArgs e)
+        {
+            buttonManager.SetActiveButton(btnExpense);
+            label_TEXT.Text = "Expense";
         }
     }
 }

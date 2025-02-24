@@ -62,7 +62,28 @@ namespace POS_System.Folder_Forms
             }
             r2.Close();
             s2.Dispose();
+            SqlCommand s3 = new SqlCommand("sp_CountP",DataConnection.DataCon);
+            s3.CommandType = CommandType.StoredProcedure;
+            SqlDataReader r3 = s3.ExecuteReader();
+            while (r3.Read())
+            {
+                string total = r3[0] + "";
+                lbPro.Text = total;
+            }
+            r3.Close();
+            s3.Dispose();
+            SqlCommand s4 = new SqlCommand("sp_CountCat", DataConnection.DataCon);
+            s4.CommandType = CommandType.StoredProcedure;
+            SqlDataReader r4 = s4.ExecuteReader();
+            while (r4.Read())
+            {
+                string total = r4[0] + "";
+                lbCat.Text = total;
+            }
+            r4.Close();
+            s4.Dispose();
         }
+
         private string GetTimeOfDay(int hour)
         {
             if (hour >= 5 && hour < 12)

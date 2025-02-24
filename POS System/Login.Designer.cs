@@ -59,7 +59,7 @@
             // 
             this.Users.Animated = true;
             this.Users.AutoRoundedCorners = true;
-            this.Users.BorderRadius = 15;
+            this.Users.BorderRadius = 21;
             this.Users.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Users.DefaultText = "";
             this.Users.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -84,7 +84,7 @@
             // 
             this.Pass.Animated = true;
             this.Pass.AutoRoundedCorners = true;
-            this.Pass.BorderRadius = 15;
+            this.Pass.BorderRadius = 21;
             this.Pass.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Pass.DefaultText = "";
             this.Pass.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -104,6 +104,7 @@
             this.Pass.Size = new System.Drawing.Size(330, 45);
             this.Pass.TabIndex = 3;
             this.Pass.TextOffset = new System.Drawing.Point(15, 0);
+            this.Pass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Pass_KeyDown);
             // 
             // label1
             // 
@@ -142,7 +143,7 @@
             // 
             this.btnLogin.Animated = true;
             this.btnLogin.AutoRoundedCorners = true;
-            this.btnLogin.BorderRadius = 15;
+            this.btnLogin.BorderRadius = 21;
             this.btnLogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -193,7 +194,7 @@
             // 
             this.Exit.Animated = true;
             this.Exit.AutoRoundedCorners = true;
-            this.Exit.BorderRadius = 15;
+            this.Exit.BorderRadius = 21;
             this.Exit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.Exit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.Exit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -230,6 +231,7 @@
             this.Role.Size = new System.Drawing.Size(330, 41);
             this.Role.TabIndex = 13;
             this.Role.TextOffset = new System.Drawing.Point(10, 0);
+            this.Role.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Role_KeyDown);
             // 
             // Login
             // 

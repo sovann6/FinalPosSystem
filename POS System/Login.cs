@@ -19,6 +19,7 @@ namespace POS_System
         public static string FullName {  get; set; }
         public static string RoleName { get; set; }
         public static byte[] Profile { get; set; }
+        public static string Emp_ID { get; set; }
         public Login()
         {
             InitializeComponent();
@@ -58,16 +59,29 @@ namespace POS_System
             string role = Role.SelectedItem.ToString();
             try
             {
-                string QueryLogIn = $"\tSELECT first_name+' '+last_name AS FullName,Image,username,password,roles from tbl_Employees WHERE username='{username}' AND password='{password}' AND roles='{role}'";
+                string QueryLogIn = $"\tSELECT Emp_id,first_name+' '+last_name AS FullName,Image,username,password,roles from tbl_Employees WHERE username='{username}' AND password='{password}' AND roles='{role}'";
                 SqlCommand s=new SqlCommand(QueryLogIn,DataConnection.DataCon);
                 SqlDataReader dr = s.ExecuteReader();                
                 if (dr.Read()) {
                     byte[] profileBytes = (byte[])dr["Image"];
                     Login.Profile = profileBytes;
+                    string Emp_ID = dr["Emp_id"].ToString();
+                    Login.Emp_ID = Emp_ID;
                     string Roles=Role.Text.Trim();
                     FullName=dr["FullName"].ToString();
-                    new Loading().Show();
-                    this.Hide();
+                    DialogResult result = MessageBox.Show("Wellcome : "+FullName+" to our POS System!","Wellcome",MessageBoxButtons.OKCancel,MessageBoxIcon.Information);
+                    if (result == DialogResult.OK)
+                    {
+                        new Loading().Show();
+                        this.Hide();
+                    }
+
+                    else
+                    {
+                        dr.Close();
+                        s.Dispose();
+                        return;
+                    }
                 }
                 else {
                     MessageBox.Show("Invaled Password or Username And Role","Warning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
@@ -97,6 +111,22 @@ namespace POS_System
             else
             {
                 Pass.PasswordChar = '*';
+            }
+        }
+
+        private void Pass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btnLogin.PerformClick();
+            }
+        }
+
+        private void Role_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode==Keys.Enter)
+            {
+                btnLogin.PerformClick();    
             }
         }
     }

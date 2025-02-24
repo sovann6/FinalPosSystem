@@ -46,13 +46,14 @@
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.TotalEmp = new System.Windows.Forms.Label();
+            this.TotalPro = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DatagridviewPro)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // DatagridviewPro
             // 
+            this.DatagridviewPro.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.DatagridviewPro.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -208,7 +209,7 @@
             this.guna2Panel1.Controls.Add(this.btnAdd);
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Controls.Add(this.label2);
-            this.guna2Panel1.Controls.Add(this.TotalEmp);
+            this.guna2Panel1.Controls.Add(this.TotalPro);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
@@ -277,16 +278,16 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Products";
             // 
-            // TotalEmp
+            // TotalPro
             // 
-            this.TotalEmp.AutoSize = true;
-            this.TotalEmp.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalEmp.ForeColor = System.Drawing.Color.Blue;
-            this.TotalEmp.Location = new System.Drawing.Point(12, 0);
-            this.TotalEmp.Name = "TotalEmp";
-            this.TotalEmp.Size = new System.Drawing.Size(54, 65);
-            this.TotalEmp.TabIndex = 0;
-            this.TotalEmp.Text = "0";
+            this.TotalPro.AutoSize = true;
+            this.TotalPro.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalPro.ForeColor = System.Drawing.Color.Blue;
+            this.TotalPro.Location = new System.Drawing.Point(12, 0);
+            this.TotalPro.Name = "TotalPro";
+            this.TotalPro.Size = new System.Drawing.Size(54, 65);
+            this.TotalPro.TabIndex = 0;
+            this.TotalPro.Text = "0";
             // 
             // Products
             // 
@@ -320,7 +321,7 @@
         private Guna.UI2.WinForms.Guna2Button btnAdd;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label TotalEmp;
+        private System.Windows.Forms.Label TotalPro;
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewImageColumn image;

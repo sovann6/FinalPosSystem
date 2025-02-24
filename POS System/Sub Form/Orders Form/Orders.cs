@@ -30,6 +30,8 @@ namespace POS_System.Sub_Form.Orders_Form
             get => PIcPro.Image;
             set => PIcPro.Image = value;
         }
+        public int Product_ID { get; set; }
+        public int Stock { get; set; }
 
         private void btn_AddItem_Click(object sender, EventArgs e)
         {

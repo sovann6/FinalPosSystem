@@ -41,6 +41,16 @@ namespace POS_System.Folder_Forms
                 }
                 r.Close();
                 s.Dispose();
+                SqlCommand cmd = new SqlCommand("sp_CountCat", DataConnection.DataCon);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                   string count = rd[0].ToString();
+                    TotalCate.Text = count;
+                }
+                rd.Close();
+                cmd.Dispose();
             }
             catch (Exception ex)
             {
@@ -86,6 +96,66 @@ namespace POS_System.Folder_Forms
                 {
                     MessageBox.Show(ex.Message);
                 }
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            Sub_Form.Category_Form.Add _add = new Sub_Form.Category_Form.Add();
+            if (_add.ShowDialog() == DialogResult.OK)
+            {
+                Category_Load(sender, e);
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (DatagridviewCat.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please Select a Category to Edit", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            int CatID = Convert.ToInt32(DatagridviewCat.SelectedRows[0].Cells[0].Value);
+            byte[] img = (byte[])DatagridviewCat.SelectedRows[0].Cells[1].Value;
+            string CatName = DatagridviewCat.SelectedRows[0].Cells[2].Value.ToString();
+            string Des = DatagridviewCat.SelectedRows[0].Cells[3].Value.ToString();
+            Sub_Form.Category_Form.Update _update = new Sub_Form.Category_Form.Update(CatID, img, CatName, Des);
+            if (_update.ShowDialog() == DialogResult.OK)
+            {
+                Category_Load(sender, e);
+            }
+        }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if(DatagridviewCat.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please Select a Category to Delete", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            int Cat_id = Convert.ToInt32(DatagridviewCat.SelectedRows[0].Cells[0].Value);
+            string CatName = DatagridviewCat.SelectedRows[0].Cells[2].Value.ToString();
+            DialogResult =MessageBox.Show($"Are you sure you want to delete this Category {CatName}", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (DialogResult == DialogResult.Yes) {
+                DeleteCategory(Cat_id);
+                Category_Load(sender, e);
+            }
+
+        }
+        private void DeleteCategory(int CatID)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_DeleteCategory", DataConnection.DataCon))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@category_id", CatID);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Category Deleted Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -45,10 +45,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel5 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lbPro = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel6 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lbCat = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.chartSale = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -235,7 +235,7 @@
             // 
             this.guna2CustomGradientPanel5.BackColor = System.Drawing.Color.Transparent;
             this.guna2CustomGradientPanel5.BorderRadius = 30;
-            this.guna2CustomGradientPanel5.Controls.Add(this.label7);
+            this.guna2CustomGradientPanel5.Controls.Add(this.lbPro);
             this.guna2CustomGradientPanel5.Controls.Add(this.label8);
             this.guna2CustomGradientPanel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(161)))), ((int)(((byte)(75)))));
             this.guna2CustomGradientPanel5.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(161)))), ((int)(((byte)(75)))));
@@ -247,17 +247,17 @@
             this.guna2CustomGradientPanel5.Size = new System.Drawing.Size(210, 210);
             this.guna2CustomGradientPanel5.TabIndex = 5;
             // 
-            // label7
+            // lbPro
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(81, 89);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 81);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "0";
+            this.lbPro.AutoSize = true;
+            this.lbPro.BackColor = System.Drawing.Color.Transparent;
+            this.lbPro.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPro.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbPro.Location = new System.Drawing.Point(81, 89);
+            this.lbPro.Name = "lbPro";
+            this.lbPro.Size = new System.Drawing.Size(63, 81);
+            this.lbPro.TabIndex = 4;
+            this.lbPro.Text = "0";
             // 
             // label8
             // 
@@ -275,7 +275,7 @@
             // 
             this.guna2CustomGradientPanel6.BackColor = System.Drawing.Color.Transparent;
             this.guna2CustomGradientPanel6.BorderRadius = 30;
-            this.guna2CustomGradientPanel6.Controls.Add(this.label11);
+            this.guna2CustomGradientPanel6.Controls.Add(this.lbCat);
             this.guna2CustomGradientPanel6.Controls.Add(this.label12);
             this.guna2CustomGradientPanel6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(161)))), ((int)(((byte)(75)))));
             this.guna2CustomGradientPanel6.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(161)))), ((int)(((byte)(75)))));
@@ -287,17 +287,17 @@
             this.guna2CustomGradientPanel6.Size = new System.Drawing.Size(210, 210);
             this.guna2CustomGradientPanel6.TabIndex = 5;
             // 
-            // label11
+            // lbCat
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label11.Location = new System.Drawing.Point(81, 89);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(63, 81);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "0";
+            this.lbCat.AutoSize = true;
+            this.lbCat.BackColor = System.Drawing.Color.Transparent;
+            this.lbCat.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbCat.Location = new System.Drawing.Point(81, 89);
+            this.lbCat.Name = "lbCat";
+            this.lbCat.Size = new System.Drawing.Size(63, 81);
+            this.lbCat.TabIndex = 4;
+            this.lbCat.Text = "0";
             // 
             // label12
             // 
@@ -492,10 +492,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel5;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbPro;
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel6;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lbCat;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartSale;

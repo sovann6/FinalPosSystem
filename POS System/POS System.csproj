@@ -33,8 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bunifu.Licensing, Version=3.2.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b" />
     <Reference Include="Bunifu.UI.WinForms.BunifuButton">
       <HintPath>..\..\..\..\Re\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
+      <HintPath>..\..\..\..\Re\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuGradientPanel">
       <HintPath>..\..\..\..\Re\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuGradientPanel.dll</HintPath>
@@ -86,6 +90,18 @@
     <Compile Include="Folder Forms\Employee.Designer.cs">
       <DependentUpon>Employee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Folder Forms\Expense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Folder Forms\Expense.Designer.cs">
+      <DependentUpon>Expense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Folder Forms\Income.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Folder Forms\Income.Designer.cs">
+      <DependentUpon>Income.cs</DependentUpon>
+    </Compile>
     <Compile Include="Folder Forms\Main_Sales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +113,12 @@
     </Compile>
     <Compile Include="Folder Forms\OrderForm.Designer.cs">
       <DependentUpon>OrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Folder Forms\Payments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Folder Forms\Payments.Designer.cs">
+      <DependentUpon>Payments.cs</DependentUpon>
     </Compile>
     <Compile Include="Folder Forms\Products.cs">
       <SubType>Form</SubType>
@@ -122,8 +144,21 @@
     <Compile Include="Main_Admin.Designer.cs">
       <DependentUpon>Main_Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrderDetails.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sub Form\Category Form\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub Form\Category Form\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub Form\Category Form\Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub Form\Category Form\Update.Designer.cs">
+      <DependentUpon>Update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sub Form\Employee Form\Add_Employee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +216,9 @@
     <EmbeddedResource Include="Folder Forms\OrderForm.resx">
       <DependentUpon>OrderForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Folder Forms\Payments.resx">
+      <DependentUpon>Payments.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Folder Forms\Products.resx">
       <DependentUpon>Products.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,6 +242,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Sub Form\Category Form\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub Form\Category Form\Update.resx">
+      <DependentUpon>Update.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sub Form\Employee Form\Add_Employee.resx">
       <DependentUpon>Add_Employee.cs</DependentUpon>
     </EmbeddedResource>
@@ -241,8 +285,6 @@
   <ItemGroup>
     <None Include="Resources\C__A__M__E__R__A_1-removebg-preview.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Sub Form\Category Form\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

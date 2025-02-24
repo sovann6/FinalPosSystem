@@ -32,7 +32,7 @@ namespace POS_System.Folder_Forms
 
         private void Main_Sales_Load(object sender, EventArgs e)
         {
-            
+            btndashbaord.PerformClick();
         }       
 
         private void btndashbaord_Click(object sender, EventArgs e)
@@ -47,8 +47,14 @@ namespace POS_System.Folder_Forms
 
         private void LogOut_Click(object sender, EventArgs e)
         {
-            new Login().Show();
-            this.Hide();
+            DialogResult Result= MessageBox.Show("Are you sure you want to logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (Result == DialogResult.Yes)
+            {
+                new Login().Show();
+                this.Hide();
+            }
+            else
+                return;
         }
         private void contianer(object _Form)
         {
@@ -72,21 +78,24 @@ namespace POS_System.Folder_Forms
 
         private void btnPro_Click(object sender, EventArgs e)
         {
-            label_TEXT.Text = "Dashboard";
-            string RoleName = Login.RoleName;
-            string Fullname = Login.FullName;
-            byte[] Profile = Login.Profile;
+            label_TEXT.Text = "Products";
             contianer(new Folder_Forms.Products());
             buttonManager.SetActiveButton(btnPro);
         }
 
         private void btnCat_Click(object sender, EventArgs e)
         {
+            label_TEXT.Text = "Categories";
+            contianer(new Folder_Forms.Category());
             buttonManager.SetActiveButton(btnCat);
         }
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
+            label_TEXT.Text = "Orders";
+            string Emp_ID = Login.Emp_ID;
+            string Role = Login.RoleName;
+            contianer(new Folder_Forms.OrderForm());
             buttonManager.SetActiveButton(btnOrder);
         }
     }

@@ -44,6 +44,16 @@ namespace POS_System.Folder_Forms
                 }
                 r.Close();
                 s.Dispose();
+                SqlCommand s1 = new SqlCommand("sp_CountP",DataConnection.DataCon);
+                s1.CommandType = CommandType.StoredProcedure;
+                SqlDataReader r1 = s1.ExecuteReader();
+                while (r1.Read())
+                {
+                    string total = r1[0] + "";
+                    TotalPro.Text = total;
+                }
+                r1.Close();
+                s1.Dispose();
             }
             catch(Exception ex) { MessageBox.Show($"Error:{ex}", "Error Database", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
         }

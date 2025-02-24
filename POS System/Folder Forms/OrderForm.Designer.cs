@@ -33,25 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
             this.Desplay = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.Amounts = new System.Windows.Forms.Label();
-            this.taxs = new System.Windows.Forms.Label();
-            this.totalssub = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lbTPO = new System.Windows.Forms.Label();
-            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.Product_Card = new POS_System.Sub_Form.Orders_Form.Orders();
             this.orders2 = new POS_System.Sub_Form.Orders_Form.Orders();
             this.orders3 = new POS_System.Sub_Form.Orders_Form.Orders();
@@ -64,6 +47,25 @@
             this.orders10 = new POS_System.Sub_Form.Orders_Form.Orders();
             this.orders11 = new POS_System.Sub_Form.Orders_Form.Orders();
             this.orders12 = new POS_System.Sub_Form.Orders_Form.Orders();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.totalssub = new System.Windows.Forms.Label();
+            this.taxs = new System.Windows.Forms.Label();
+            this.Amounts = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lbTPO = new System.Windows.Forms.Label();
+            this.ComCat = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnPay = new Guna.UI2.WinForms.Guna2Button();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Desplay)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -71,6 +73,7 @@
             // 
             // Desplay
             // 
+            this.Desplay.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.Desplay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Desplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -93,7 +96,8 @@
             this.Qty,
             this.Price,
             this.Amount,
-            this.delete});
+            this.delete,
+            this.Column1});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -129,40 +133,7 @@
             this.Desplay.ThemeStyle.RowsStyle.Height = 22;
             this.Desplay.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.Desplay.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Animated = true;
-            this.txtSearch.BorderRadius = 10;
-            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSearch.DefaultText = "";
-            this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.Location = new System.Drawing.Point(31, 38);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.PasswordChar = '\0';
-            this.txtSearch.PlaceholderText = "Search Products";
-            this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(258, 43);
-            this.txtSearch.TabIndex = 2;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(38, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 29);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Search Here";
+            this.Desplay.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Desplay_CellContentClick);
             // 
             // flowLayoutPanel1
             // 
@@ -184,6 +155,150 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(960, 898);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
+            // Product_Card
+            // 
+            this.Product_Card.Location = new System.Drawing.Point(3, 4);
+            this.Product_Card.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Product_Card.Name = "Product_Card";
+            this.Product_Card.Product_ID = 0;
+            this.Product_Card.Product_Image = ((System.Drawing.Image)(resources.GetObject("Product_Card.Product_Image")));
+            this.Product_Card.Product_Name = "Product Name";
+            this.Product_Card.Product_Price = "Price";
+            this.Product_Card.Size = new System.Drawing.Size(202, 267);
+            this.Product_Card.TabIndex = 0;
+            // 
+            // orders2
+            // 
+            this.orders2.Location = new System.Drawing.Point(212, 5);
+            this.orders2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.orders2.Name = "orders2";
+            this.orders2.Product_ID = 0;
+            this.orders2.Product_Image = ((System.Drawing.Image)(resources.GetObject("orders2.Product_Image")));
+            this.orders2.Product_Name = "Product Name";
+            this.orders2.Product_Price = "Price";
+            this.orders2.Size = new System.Drawing.Size(202, 267);
+            this.orders2.TabIndex = 1;
+            // 
+            // orders3
+            // 
+            this.orders3.Location = new System.Drawing.Point(422, 5);
+            this.orders3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.orders3.Name = "orders3";
+            this.orders3.Product_ID = 0;
+            this.orders3.Product_Image = ((System.Drawing.Image)(resources.GetObject("orders3.Product_Image")));
+            this.orders3.Product_Name = "Product Name";
+            this.orders3.Product_Price = "Price";
+            this.orders3.Size = new System.Drawing.Size(202, 267);
+            this.orders3.TabIndex = 2;
+            // 
+            // orders4
+            // 
+            this.orders4.Location = new System.Drawing.Point(632, 5);
+            this.orders4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.orders4.Name = "orders4";
+            this.orders4.Product_ID = 0;
+            this.orders4.Product_Image = ((System.Drawing.Image)(resources.GetObject("orders4.Product_Image")));
+            this.orders4.Product_Name = "Product Name";
+            this.orders4.Product_Price = "Price";
+            this.orders4.Size = new System.Drawing.Size(202, 267);
+            this.orders4.TabIndex = 3;
+            // 
+            // orders5
+            // 
+            this.orders5.Location = new System.Drawing.Point(4, 282);
+            this.orders5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.orders5.Name = "orders5";
+            this.orders5.Product_ID = 0;
+            this.orders5.Product_Image = ((System.Drawing.Image)(resources.GetObject("orders5.Product_Image")));
+            this.orders5.Product_Name = "Product Name";
+            this.orders5.Product_Price = "Price";
+            this.orders5.Size = new System.Drawing.Size(202, 267);
+            this.orders5.TabIndex = 4;
+            // 
+            // orders6
+            // 
+            this.orders6.Location = new System.Drawing.Point(216, 286);
+            this.orders6.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
+            this.orders6.Name = "orders6";
+            this.orders6.Product_ID = 0;
+            this.orders6.Product_Image = ((System.Drawing.Image)(resources.GetObject("orders6.Product_Image")));
+            this.orders6.Product_Name = "Product Name";
+            this.orders6.Product_Price = "Price";
+            this.orders6.Size = new System.Drawing.Size(202, 267);
+            this.orders6.TabIndex = 5;
+            // 
+            // orders7
+            // 
+            this.orders7.Location = new System.Drawing.Point(430, 286);
+            this.orders7.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
+            this.orders7.Name = "orders7";
+            this.orders7.Product_ID = 0;
+            this.orders7.Product_Image = ((System.Drawing.Image)(resources.GetObject("orders7.Product_Image")));
+            this.orders7.Product_Name = "Product Name";
+            this.orders7.Product_Price = "Price";
+            this.orders7.Size = new System.Drawing.Size(202, 267);
+            this.orders7.TabIndex = 6;
+            // 
+            // orders8
+            // 
+            this.orders8.Location = new System.Drawing.Point(644, 286);
+            this.orders8.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
+            this.orders8.Name = "orders8";
+            this.orders8.Product_ID = 0;
+            this.orders8.Product_Image = ((System.Drawing.Image)(resources.GetObject("orders8.Product_Image")));
+            this.orders8.Product_Name = "Product Name";
+            this.orders8.Product_Price = "Price";
+            this.orders8.Size = new System.Drawing.Size(202, 267);
+            this.orders8.TabIndex = 7;
+            // 
+            // orders9
+            // 
+            this.orders9.Location = new System.Drawing.Point(4, 567);
+            this.orders9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.orders9.Name = "orders9";
+            this.orders9.Product_ID = 0;
+            this.orders9.Product_Image = ((System.Drawing.Image)(resources.GetObject("orders9.Product_Image")));
+            this.orders9.Product_Name = "Product Name";
+            this.orders9.Product_Price = "Price";
+            this.orders9.Size = new System.Drawing.Size(202, 267);
+            this.orders9.TabIndex = 8;
+            // 
+            // orders10
+            // 
+            this.orders10.Location = new System.Drawing.Point(214, 567);
+            this.orders10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.orders10.Name = "orders10";
+            this.orders10.Product_ID = 0;
+            this.orders10.Product_Image = ((System.Drawing.Image)(resources.GetObject("orders10.Product_Image")));
+            this.orders10.Product_Name = "Product Name";
+            this.orders10.Product_Price = "Price";
+            this.orders10.Size = new System.Drawing.Size(202, 267);
+            this.orders10.TabIndex = 9;
+            // 
+            // orders11
+            // 
+            this.orders11.Location = new System.Drawing.Point(424, 567);
+            this.orders11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.orders11.Name = "orders11";
+            this.orders11.Product_ID = 0;
+            this.orders11.Product_Image = ((System.Drawing.Image)(resources.GetObject("orders11.Product_Image")));
+            this.orders11.Product_Name = "Product Name";
+            this.orders11.Product_Price = "Price";
+            this.orders11.Size = new System.Drawing.Size(202, 267);
+            this.orders11.TabIndex = 10;
+            // 
+            // orders12
+            // 
+            this.orders12.Location = new System.Drawing.Point(634, 567);
+            this.orders12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.orders12.Name = "orders12";
+            this.orders12.Product_ID = 0;
+            this.orders12.Product_Image = ((System.Drawing.Image)(resources.GetObject("orders12.Product_Image")));
+            this.orders12.Product_Name = "Product Name";
+            this.orders12.Product_Price = "Price";
+            this.orders12.Size = new System.Drawing.Size(202, 267);
+            this.orders12.TabIndex = 11;
+            // 
             // guna2Panel1
             // 
             this.guna2Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -203,33 +318,23 @@
             this.guna2Panel1.Size = new System.Drawing.Size(637, 204);
             this.guna2Panel1.TabIndex = 5;
             // 
-            // label2
+            // totalssub
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(48, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 23);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Sub totals :";
+            this.totalssub.AutoSize = true;
+            this.totalssub.Location = new System.Drawing.Point(449, 31);
+            this.totalssub.Name = "totalssub";
+            this.totalssub.Size = new System.Drawing.Size(49, 23);
+            this.totalssub.TabIndex = 5;
+            this.totalssub.Text = "$0.00";
             // 
-            // label3
+            // taxs
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(48, 79);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 23);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Tax (10%)";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(46, 136);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(140, 33);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Totals Amount";
+            this.taxs.AutoSize = true;
+            this.taxs.Location = new System.Drawing.Point(449, 79);
+            this.taxs.Name = "taxs";
+            this.taxs.Size = new System.Drawing.Size(49, 23);
+            this.taxs.TabIndex = 4;
+            this.taxs.Text = "$0.00";
             // 
             // Amounts
             // 
@@ -241,23 +346,33 @@
             this.Amounts.TabIndex = 3;
             this.Amounts.Text = "$0.00";
             // 
-            // taxs
+            // label4
             // 
-            this.taxs.AutoSize = true;
-            this.taxs.Location = new System.Drawing.Point(449, 79);
-            this.taxs.Name = "taxs";
-            this.taxs.Size = new System.Drawing.Size(49, 23);
-            this.taxs.TabIndex = 4;
-            this.taxs.Text = "$0.00";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(46, 136);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(140, 33);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Totals Amount";
             // 
-            // totalssub
+            // label3
             // 
-            this.totalssub.AutoSize = true;
-            this.totalssub.Location = new System.Drawing.Point(449, 31);
-            this.totalssub.Name = "totalssub";
-            this.totalssub.Size = new System.Drawing.Size(49, 23);
-            this.totalssub.TabIndex = 5;
-            this.totalssub.Text = "$0.00";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(48, 79);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 23);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Tax (10%)";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(48, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 23);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Sub totals :";
             // 
             // label5
             // 
@@ -280,6 +395,54 @@
             this.lbTPO.Size = new System.Drawing.Size(38, 45);
             this.lbTPO.TabIndex = 7;
             this.lbTPO.Text = "0";
+            // 
+            // ComCat
+            // 
+            this.ComCat.BackColor = System.Drawing.Color.Transparent;
+            this.ComCat.BorderRadius = 10;
+            this.ComCat.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ComCat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComCat.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ComCat.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ComCat.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComCat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.ComCat.ItemHeight = 35;
+            this.ComCat.Location = new System.Drawing.Point(12, 42);
+            this.ComCat.Name = "ComCat";
+            this.ComCat.Size = new System.Drawing.Size(254, 41);
+            this.ComCat.TabIndex = 8;
+            this.ComCat.SelectedIndexChanged += new System.EventHandler(this.ComCat_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(16, 8);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(170, 29);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Sort By Category";
+            // 
+            // btnPay
+            // 
+            this.btnPay.Animated = true;
+            this.btnPay.BackColor = System.Drawing.Color.Transparent;
+            this.btnPay.BorderRadius = 10;
+            this.btnPay.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPay.FillColor = System.Drawing.Color.Blue;
+            this.btnPay.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnPay.ForeColor = System.Drawing.Color.White;
+            this.btnPay.Location = new System.Drawing.Point(1405, 928);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(180, 45);
+            this.btnPay.TabIndex = 10;
+            this.btnPay.Text = "PAY NOW";
+            this.btnPay.UseTransparentBackground = true;
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
             // No
             // 
@@ -318,152 +481,28 @@
             this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
             this.delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.delete.Name = "delete";
-            this.delete.Width = 50;
+            this.delete.Width = 30;
             // 
-            // Product_Card
+            // Column1
             // 
-            this.Product_Card.Location = new System.Drawing.Point(3, 4);
-            this.Product_Card.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Product_Card.Name = "Product_Card";
-            this.Product_Card.Product_Image = ((System.Drawing.Image)(resources.GetObject("Product_Card.Product_Image")));
-            this.Product_Card.Product_Name = "Product Name";
-            this.Product_Card.Product_Price = "Price";
-            this.Product_Card.Size = new System.Drawing.Size(202, 267);
-            this.Product_Card.TabIndex = 0;
-            // 
-            // orders2
-            // 
-            this.orders2.Location = new System.Drawing.Point(212, 5);
-            this.orders2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.orders2.Name = "orders2";
-            this.orders2.Product_Image = ((System.Drawing.Image)(resources.GetObject("orders2.Product_Image")));
-            this.orders2.Product_Name = "Product Name";
-            this.orders2.Product_Price = "Price";
-            this.orders2.Size = new System.Drawing.Size(202, 267);
-            this.orders2.TabIndex = 1;
-            // 
-            // orders3
-            // 
-            this.orders3.Location = new System.Drawing.Point(422, 5);
-            this.orders3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.orders3.Name = "orders3";
-            this.orders3.Product_Image = ((System.Drawing.Image)(resources.GetObject("orders3.Product_Image")));
-            this.orders3.Product_Name = "Product Name";
-            this.orders3.Product_Price = "Price";
-            this.orders3.Size = new System.Drawing.Size(202, 267);
-            this.orders3.TabIndex = 2;
-            // 
-            // orders4
-            // 
-            this.orders4.Location = new System.Drawing.Point(632, 5);
-            this.orders4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.orders4.Name = "orders4";
-            this.orders4.Product_Image = ((System.Drawing.Image)(resources.GetObject("orders4.Product_Image")));
-            this.orders4.Product_Name = "Product Name";
-            this.orders4.Product_Price = "Price";
-            this.orders4.Size = new System.Drawing.Size(202, 267);
-            this.orders4.TabIndex = 3;
-            // 
-            // orders5
-            // 
-            this.orders5.Location = new System.Drawing.Point(4, 282);
-            this.orders5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.orders5.Name = "orders5";
-            this.orders5.Product_Image = ((System.Drawing.Image)(resources.GetObject("orders5.Product_Image")));
-            this.orders5.Product_Name = "Product Name";
-            this.orders5.Product_Price = "Price";
-            this.orders5.Size = new System.Drawing.Size(202, 267);
-            this.orders5.TabIndex = 4;
-            // 
-            // orders6
-            // 
-            this.orders6.Location = new System.Drawing.Point(216, 286);
-            this.orders6.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
-            this.orders6.Name = "orders6";
-            this.orders6.Product_Image = ((System.Drawing.Image)(resources.GetObject("orders6.Product_Image")));
-            this.orders6.Product_Name = "Product Name";
-            this.orders6.Product_Price = "Price";
-            this.orders6.Size = new System.Drawing.Size(202, 267);
-            this.orders6.TabIndex = 5;
-            // 
-            // orders7
-            // 
-            this.orders7.Location = new System.Drawing.Point(430, 286);
-            this.orders7.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
-            this.orders7.Name = "orders7";
-            this.orders7.Product_Image = ((System.Drawing.Image)(resources.GetObject("orders7.Product_Image")));
-            this.orders7.Product_Name = "Product Name";
-            this.orders7.Product_Price = "Price";
-            this.orders7.Size = new System.Drawing.Size(202, 267);
-            this.orders7.TabIndex = 6;
-            // 
-            // orders8
-            // 
-            this.orders8.Location = new System.Drawing.Point(644, 286);
-            this.orders8.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
-            this.orders8.Name = "orders8";
-            this.orders8.Product_Image = ((System.Drawing.Image)(resources.GetObject("orders8.Product_Image")));
-            this.orders8.Product_Name = "Product Name";
-            this.orders8.Product_Price = "Price";
-            this.orders8.Size = new System.Drawing.Size(202, 267);
-            this.orders8.TabIndex = 7;
-            // 
-            // orders9
-            // 
-            this.orders9.Location = new System.Drawing.Point(4, 567);
-            this.orders9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.orders9.Name = "orders9";
-            this.orders9.Product_Image = ((System.Drawing.Image)(resources.GetObject("orders9.Product_Image")));
-            this.orders9.Product_Name = "Product Name";
-            this.orders9.Product_Price = "Price";
-            this.orders9.Size = new System.Drawing.Size(202, 267);
-            this.orders9.TabIndex = 8;
-            // 
-            // orders10
-            // 
-            this.orders10.Location = new System.Drawing.Point(214, 567);
-            this.orders10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.orders10.Name = "orders10";
-            this.orders10.Product_Image = ((System.Drawing.Image)(resources.GetObject("orders10.Product_Image")));
-            this.orders10.Product_Name = "Product Name";
-            this.orders10.Product_Price = "Price";
-            this.orders10.Size = new System.Drawing.Size(202, 267);
-            this.orders10.TabIndex = 9;
-            // 
-            // orders11
-            // 
-            this.orders11.Location = new System.Drawing.Point(424, 567);
-            this.orders11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.orders11.Name = "orders11";
-            this.orders11.Product_Image = ((System.Drawing.Image)(resources.GetObject("orders11.Product_Image")));
-            this.orders11.Product_Name = "Product Name";
-            this.orders11.Product_Price = "Price";
-            this.orders11.Size = new System.Drawing.Size(202, 267);
-            this.orders11.TabIndex = 10;
-            // 
-            // orders12
-            // 
-            this.orders12.Location = new System.Drawing.Point(634, 567);
-            this.orders12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.orders12.Name = "orders12";
-            this.orders12.Product_Image = ((System.Drawing.Image)(resources.GetObject("orders12.Product_Image")));
-            this.orders12.Product_Name = "Product Name";
-            this.orders12.Product_Price = "Price";
-            this.orders12.Size = new System.Drawing.Size(202, 267);
-            this.orders12.TabIndex = 11;
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 5;
             // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1623, 999);
+            this.Controls.Add(this.btnPay);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.ComCat);
             this.Controls.Add(this.lbTPO);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.Desplay);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtSearch);
             this.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -482,8 +521,6 @@
 
         #endregion
         private Guna.UI2.WinForms.Guna2DataGridView Desplay;
-        private Guna.UI2.WinForms.Guna2TextBox txtSearch;
-        private System.Windows.Forms.Label label1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Sub_Form.Orders_Form.Orders Product_Card;
@@ -507,11 +544,15 @@
         private System.Windows.Forms.Label Amounts;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbTPO;
+        private Guna.UI2.WinForms.Guna2ComboBox ComCat;
+        private System.Windows.Forms.Label label6;
+        private Guna.UI2.WinForms.Guna2Button btnPay;
         private System.Windows.Forms.DataGridViewTextBoxColumn No;
         private System.Windows.Forms.DataGridViewTextBoxColumn PName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewImageColumn delete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

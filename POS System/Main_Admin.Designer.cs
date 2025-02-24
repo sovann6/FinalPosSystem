@@ -44,14 +44,14 @@
             this.LogOut = new Guna.UI2.WinForms.Guna2CircleButton();
             this.fULLNAME = new System.Windows.Forms.Label();
             this.label_TEXT = new System.Windows.Forms.Label();
-            this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.search = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.panel_container = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnIncome = new Guna.UI2.WinForms.Guna2Button();
+            this.btnExpense = new Guna.UI2.WinForms.Guna2Button();
             this.panel_left.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -62,6 +62,8 @@
             // panel_left
             // 
             this.panel_left.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(161)))), ((int)(((byte)(75)))));
+            this.panel_left.Controls.Add(this.btnIncome);
+            this.panel_left.Controls.Add(this.btnExpense);
             this.panel_left.Controls.Add(this.guna2CirclePictureBox2);
             this.panel_left.Controls.Add(this.label1);
             this.panel_left.Controls.Add(this.guna2PictureBox1);
@@ -254,8 +256,6 @@
             this.panel_top.Controls.Add(this.fULLNAME);
             this.panel_top.Controls.Add(this.label_TEXT);
             this.panel_top.Controls.Add(this.Picture);
-            this.panel_top.Controls.Add(this.guna2CircleButton1);
-            this.panel_top.Controls.Add(this.search);
             this.panel_top.Controls.Add(this.guna2ControlBox3);
             this.panel_top.Controls.Add(this.guna2ControlBox2);
             this.panel_top.Controls.Add(this.guna2ControlBox1);
@@ -304,49 +304,6 @@
             this.label_TEXT.Size = new System.Drawing.Size(240, 54);
             this.label_TEXT.TabIndex = 9;
             this.label_TEXT.Text = "SUCAMERA";
-            // 
-            // guna2CircleButton1
-            // 
-            this.guna2CircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2CircleButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2CircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CircleButton1.Image")));
-            this.guna2CircleButton1.ImageSize = new System.Drawing.Size(10, 10);
-            this.guna2CircleButton1.Location = new System.Drawing.Point(824, 11);
-            this.guna2CircleButton1.Name = "guna2CircleButton1";
-            this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton1.Size = new System.Drawing.Size(30, 30);
-            this.guna2CircleButton1.TabIndex = 2;
-            // 
-            // search
-            // 
-            this.search.Animated = true;
-            this.search.AutoRoundedCorners = true;
-            this.search.BackColor = System.Drawing.Color.Transparent;
-            this.search.BorderRadius = 16;
-            this.search.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.search.DefaultText = "";
-            this.search.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.search.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.search.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.search.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.search.FillColor = System.Drawing.Color.MistyRose;
-            this.search.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.search.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.search.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.search.IconLeft = ((System.Drawing.Image)(resources.GetObject("search.IconLeft")));
-            this.search.IconLeftOffset = new System.Drawing.Point(10, 0);
-            this.search.Location = new System.Drawing.Point(546, 8);
-            this.search.Margin = new System.Windows.Forms.Padding(6);
-            this.search.Name = "search";
-            this.search.PasswordChar = '\0';
-            this.search.PlaceholderText = "Search";
-            this.search.SelectedText = "";
-            this.search.Size = new System.Drawing.Size(263, 35);
-            this.search.TabIndex = 1;
             // 
             // guna2ControlBox3
             // 
@@ -397,6 +354,54 @@
             this.panel_container.Size = new System.Drawing.Size(1553, 1005);
             this.panel_container.TabIndex = 1;
             // 
+            // btnIncome
+            // 
+            this.btnIncome.Animated = true;
+            this.btnIncome.AutoRoundedCorners = true;
+            this.btnIncome.BackColor = System.Drawing.Color.Transparent;
+            this.btnIncome.BorderRadius = 28;
+            this.btnIncome.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnIncome.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnIncome.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnIncome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnIncome.FillColor = System.Drawing.Color.Transparent;
+            this.btnIncome.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnIncome.ForeColor = System.Drawing.Color.Black;
+            this.btnIncome.Image = ((System.Drawing.Image)(resources.GetObject("btnIncome.Image")));
+            this.btnIncome.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnIncome.ImageOffset = new System.Drawing.Point(25, 0);
+            this.btnIncome.Location = new System.Drawing.Point(5, 860);
+            this.btnIncome.Name = "btnIncome";
+            this.btnIncome.Size = new System.Drawing.Size(317, 59);
+            this.btnIncome.TabIndex = 12;
+            this.btnIncome.Text = "Income";
+            this.btnIncome.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnIncome.Click += new System.EventHandler(this.txtIncome_Click);
+            // 
+            // btnExpense
+            // 
+            this.btnExpense.Animated = true;
+            this.btnExpense.AutoRoundedCorners = true;
+            this.btnExpense.BackColor = System.Drawing.Color.Transparent;
+            this.btnExpense.BorderRadius = 28;
+            this.btnExpense.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnExpense.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnExpense.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnExpense.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnExpense.FillColor = System.Drawing.Color.Transparent;
+            this.btnExpense.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnExpense.ForeColor = System.Drawing.Color.Black;
+            this.btnExpense.Image = ((System.Drawing.Image)(resources.GetObject("btnExpense.Image")));
+            this.btnExpense.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnExpense.ImageOffset = new System.Drawing.Point(25, 0);
+            this.btnExpense.Location = new System.Drawing.Point(5, 748);
+            this.btnExpense.Name = "btnExpense";
+            this.btnExpense.Size = new System.Drawing.Size(317, 59);
+            this.btnExpense.TabIndex = 11;
+            this.btnExpense.Text = "Expense";
+            this.btnExpense.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnExpense.Click += new System.EventHandler(this.btnExpense_Click);
+            // 
             // Main_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
@@ -438,8 +443,6 @@
         private Guna.UI2.WinForms.Guna2Button btPro;
         private Guna.UI2.WinForms.Guna2Button btemp;
         private Guna.UI2.WinForms.Guna2CirclePictureBox Picture;
-        private Guna.UI2.WinForms.Guna2TextBox search;
-        private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
         private Guna.UI2.WinForms.Guna2Panel panel_container;
@@ -448,5 +451,7 @@
         private System.Windows.Forms.Label label_TEXT;
         private System.Windows.Forms.Label fULLNAME;
         private Guna.UI2.WinForms.Guna2CircleButton LogOut;
+        private Guna.UI2.WinForms.Guna2Button btnIncome;
+        private Guna.UI2.WinForms.Guna2Button btnExpense;
     }
 }

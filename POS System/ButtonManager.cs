@@ -14,40 +14,39 @@ namespace POS_System
         private Guna2Button[] buttons;
         private Guna2Button activeButton;
 
-        // Constructor to initialize buttons
+        
         public ButtonManager(Guna2Button[] gunaButtons)
         {
             buttons = gunaButtons;
-            checkButton = false; // Default state
-            UpdateButtonColor(); // Set initial colors
+            checkButton = false;
+            UpdateButtonColor(); 
         }
 
-        // Method to toggle all button colors
         public void ToggleButton()
         {
             checkButton = !checkButton;
             UpdateButtonColor();
         }
 
-        // Update all buttons based on checkButton state
+        
         private void UpdateButtonColor()
         {
-            foreach (var btn in buttons)  // ✅ Fix: Loop through all buttons
+            foreach (var btn in buttons)  
             {
                 btn.FillColor = checkButton ? Color.White : Color.Transparent;
             }
         }
 
-        // Method to set one active button and reset others
+        
         public void SetActiveButton(Guna2Button newButton)
         {
             foreach (var btn in buttons)
             {
-                btn.FillColor = Color.Transparent; // Reset all buttons
+                btn.FillColor = Color.Transparent; 
             }
 
             activeButton = newButton;
-            activeButton.FillColor = Color.White;  // Set active button color
+            activeButton.FillColor = Color.White;
         }
     }
 }

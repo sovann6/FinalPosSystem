@@ -36,7 +36,7 @@
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.TotalEmp = new System.Windows.Forms.Label();
+            this.TotalCate = new System.Windows.Forms.Label();
             this.DatagridviewCat = new Guna.UI2.WinForms.Guna2DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.image = new System.Windows.Forms.DataGridViewImageColumn();
@@ -54,7 +54,7 @@
             this.guna2Panel1.Controls.Add(this.btnAdd);
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Controls.Add(this.label2);
-            this.guna2Panel1.Controls.Add(this.TotalEmp);
+            this.guna2Panel1.Controls.Add(this.TotalCate);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
@@ -103,6 +103,7 @@
             this.btnAdd.Size = new System.Drawing.Size(144, 42);
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Add Category";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label1
             // 
@@ -122,19 +123,20 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Categoies";
             // 
-            // TotalEmp
+            // TotalCate
             // 
-            this.TotalEmp.AutoSize = true;
-            this.TotalEmp.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalEmp.ForeColor = System.Drawing.Color.Blue;
-            this.TotalEmp.Location = new System.Drawing.Point(12, 0);
-            this.TotalEmp.Name = "TotalEmp";
-            this.TotalEmp.Size = new System.Drawing.Size(54, 65);
-            this.TotalEmp.TabIndex = 0;
-            this.TotalEmp.Text = "0";
+            this.TotalCate.AutoSize = true;
+            this.TotalCate.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalCate.ForeColor = System.Drawing.Color.Blue;
+            this.TotalCate.Location = new System.Drawing.Point(12, 0);
+            this.TotalCate.Name = "TotalCate";
+            this.TotalCate.Size = new System.Drawing.Size(54, 65);
+            this.TotalCate.TabIndex = 0;
+            this.TotalCate.Text = "0";
             // 
             // DatagridviewCat
             // 
+            this.DatagridviewCat.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.DatagridviewCat.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -164,7 +166,7 @@
             this.DatagridviewCat.Location = new System.Drawing.Point(7, 103);
             this.DatagridviewCat.Name = "DatagridviewCat";
             this.DatagridviewCat.RowHeadersVisible = false;
-            this.DatagridviewCat.Size = new System.Drawing.Size(1615, 845);
+            this.DatagridviewCat.Size = new System.Drawing.Size(1615, 829);
             this.DatagridviewCat.TabIndex = 11;
             this.DatagridviewCat.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.DatagridviewCat.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -233,11 +235,12 @@
             this.btnDelete.FillColor = System.Drawing.Color.Transparent;
             this.btnDelete.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 12F, System.Drawing.FontStyle.Bold);
             this.btnDelete.ForeColor = System.Drawing.Color.Blue;
-            this.btnDelete.Location = new System.Drawing.Point(1458, 954);
+            this.btnDelete.Location = new System.Drawing.Point(1458, 943);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(79, 29);
             this.btnDelete.TabIndex = 10;
             this.btnDelete.Text = "Delete";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
@@ -253,11 +256,12 @@
             this.btnEdit.FillColor = System.Drawing.Color.Transparent;
             this.btnEdit.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 12F, System.Drawing.FontStyle.Bold);
             this.btnEdit.ForeColor = System.Drawing.Color.Blue;
-            this.btnEdit.Location = new System.Drawing.Point(1543, 954);
+            this.btnEdit.Location = new System.Drawing.Point(1543, 943);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(79, 29);
             this.btnEdit.TabIndex = 9;
             this.btnEdit.Text = "Edit";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // Category
             // 
@@ -289,7 +293,7 @@
         private Guna.UI2.WinForms.Guna2Button btnAdd;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label TotalEmp;
+        private System.Windows.Forms.Label TotalCate;
         private Guna.UI2.WinForms.Guna2DataGridView DatagridviewCat;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewImageColumn image;

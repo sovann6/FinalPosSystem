@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashoard));
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.label_totalemp = new System.Windows.Forms.Label();
@@ -42,7 +39,7 @@
             this.label_Admin = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel4 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbOrders = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel5 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.lbPro = new System.Windows.Forms.Label();
@@ -51,7 +48,6 @@
             this.lbCat = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.chartSale = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.Time = new System.Windows.Forms.Label();
@@ -60,15 +56,26 @@
             this.label_Name = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.txtIncome = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lbtExpanse = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lbtNetProfits = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2CustomGradientPanel2.SuspendLayout();
             this.guna2CustomGradientPanel3.SuspendLayout();
             this.guna2CustomGradientPanel4.SuspendLayout();
             this.guna2CustomGradientPanel5.SuspendLayout();
             this.guna2CustomGradientPanel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartSale)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            this.guna2Panel2.SuspendLayout();
+            this.guna2Panel3.SuspendLayout();
+            this.guna2Panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2CustomGradientPanel1
@@ -195,7 +202,7 @@
             // 
             this.guna2CustomGradientPanel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2CustomGradientPanel4.BorderRadius = 30;
-            this.guna2CustomGradientPanel4.Controls.Add(this.label4);
+            this.guna2CustomGradientPanel4.Controls.Add(this.lbOrders);
             this.guna2CustomGradientPanel4.Controls.Add(this.label6);
             this.guna2CustomGradientPanel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(161)))), ((int)(((byte)(75)))));
             this.guna2CustomGradientPanel4.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(161)))), ((int)(((byte)(75)))));
@@ -207,17 +214,17 @@
             this.guna2CustomGradientPanel4.Size = new System.Drawing.Size(210, 210);
             this.guna2CustomGradientPanel4.TabIndex = 1;
             // 
-            // label4
+            // lbOrders
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(81, 89);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 81);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "0";
+            this.lbOrders.AutoSize = true;
+            this.lbOrders.BackColor = System.Drawing.Color.Transparent;
+            this.lbOrders.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbOrders.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbOrders.Location = new System.Drawing.Point(81, 89);
+            this.lbOrders.Name = "lbOrders";
+            this.lbOrders.Size = new System.Drawing.Size(63, 81);
+            this.lbOrders.TabIndex = 4;
+            this.lbOrders.Text = "0";
             // 
             // label6
             // 
@@ -318,22 +325,6 @@
             this.monthCalendar1.Location = new System.Drawing.Point(1134, 514);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 6;
-            // 
-            // chartSale
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chartSale.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartSale.Legends.Add(legend1);
-            this.chartSale.Location = new System.Drawing.Point(12, 514);
-            this.chartSale.Name = "chartSale";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartSale.Series.Add(series1);
-            this.chartSale.Size = new System.Drawing.Size(1066, 506);
-            this.chartSale.TabIndex = 7;
-            this.chartSale.Text = "chart1";
             // 
             // guna2Panel1
             // 
@@ -436,13 +427,117 @@
             this.guna2CirclePictureBox1.TabIndex = 0;
             this.guna2CirclePictureBox1.TabStop = false;
             // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel2.BorderRadius = 15;
+            this.guna2Panel2.Controls.Add(this.txtIncome);
+            this.guna2Panel2.Controls.Add(this.label5);
+            this.guna2Panel2.FillColor = System.Drawing.Color.MediumVioletRed;
+            this.guna2Panel2.Location = new System.Drawing.Point(21, 485);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(468, 260);
+            this.guna2Panel2.TabIndex = 9;
+            // 
+            // txtIncome
+            // 
+            this.txtIncome.AutoSize = true;
+            this.txtIncome.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIncome.ForeColor = System.Drawing.Color.Transparent;
+            this.txtIncome.Location = new System.Drawing.Point(166, 146);
+            this.txtIncome.Name = "txtIncome";
+            this.txtIncome.Size = new System.Drawing.Size(123, 57);
+            this.txtIncome.TabIndex = 8;
+            this.txtIncome.Text = "$0.00";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bahnschrift Condensed", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(19, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(447, 72);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Totals Income Todays";
+            // 
+            // guna2Panel3
+            // 
+            this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel3.BorderRadius = 15;
+            this.guna2Panel3.Controls.Add(this.lbtExpanse);
+            this.guna2Panel3.Controls.Add(this.label4);
+            this.guna2Panel3.FillColor = System.Drawing.Color.MediumVioletRed;
+            this.guna2Panel3.Location = new System.Drawing.Point(557, 485);
+            this.guna2Panel3.Name = "guna2Panel3";
+            this.guna2Panel3.Size = new System.Drawing.Size(468, 260);
+            this.guna2Panel3.TabIndex = 10;
+            // 
+            // lbtExpanse
+            // 
+            this.lbtExpanse.AutoSize = true;
+            this.lbtExpanse.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtExpanse.ForeColor = System.Drawing.Color.Transparent;
+            this.lbtExpanse.Location = new System.Drawing.Point(175, 146);
+            this.lbtExpanse.Name = "lbtExpanse";
+            this.lbtExpanse.Size = new System.Drawing.Size(123, 57);
+            this.lbtExpanse.TabIndex = 8;
+            this.lbtExpanse.Text = "$0.00";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Location = new System.Drawing.Point(8, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(469, 72);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Totals Expanse Todays";
+            // 
+            // guna2Panel4
+            // 
+            this.guna2Panel4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel4.BorderRadius = 15;
+            this.guna2Panel4.Controls.Add(this.lbtNetProfits);
+            this.guna2Panel4.Controls.Add(this.label9);
+            this.guna2Panel4.FillColor = System.Drawing.Color.MediumVioletRed;
+            this.guna2Panel4.Location = new System.Drawing.Point(21, 762);
+            this.guna2Panel4.Name = "guna2Panel4";
+            this.guna2Panel4.Size = new System.Drawing.Size(1004, 213);
+            this.guna2Panel4.TabIndex = 11;
+            // 
+            // lbtNetProfits
+            // 
+            this.lbtNetProfits.AutoSize = true;
+            this.lbtNetProfits.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtNetProfits.ForeColor = System.Drawing.Color.Transparent;
+            this.lbtNetProfits.Location = new System.Drawing.Point(437, 119);
+            this.lbtNetProfits.Name = "lbtNetProfits";
+            this.lbtNetProfits.Size = new System.Drawing.Size(123, 57);
+            this.lbtNetProfits.TabIndex = 8;
+            this.lbtNetProfits.Text = "$0.00";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Bahnschrift Condensed", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label9.Location = new System.Drawing.Point(305, 27);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(436, 72);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Totals Profits Todays";
+            // 
             // Dashoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1740, 1032);
+            this.Controls.Add(this.guna2Panel4);
+            this.Controls.Add(this.guna2Panel3);
+            this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
-            this.Controls.Add(this.chartSale);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.guna2CustomGradientPanel6);
             this.Controls.Add(this.guna2CustomGradientPanel5);
@@ -469,10 +564,15 @@
             this.guna2CustomGradientPanel5.PerformLayout();
             this.guna2CustomGradientPanel6.ResumeLayout(false);
             this.guna2CustomGradientPanel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartSale)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            this.guna2Panel2.ResumeLayout(false);
+            this.guna2Panel2.PerformLayout();
+            this.guna2Panel3.ResumeLayout(false);
+            this.guna2Panel3.PerformLayout();
+            this.guna2Panel4.ResumeLayout(false);
+            this.guna2Panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -489,7 +589,7 @@
         private System.Windows.Forms.Label label_Admin;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel4;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbOrders;
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel5;
         private System.Windows.Forms.Label lbPro;
@@ -498,7 +598,6 @@
         private System.Windows.Forms.Label lbCat;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartSale;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label label_Name;
         private System.Windows.Forms.Label label13;
@@ -507,5 +606,14 @@
         private System.Windows.Forms.Label labelPosition;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label Time;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private System.Windows.Forms.Label txtIncome;
+        private System.Windows.Forms.Label label5;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+        private System.Windows.Forms.Label lbtExpanse;
+        private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
+        private System.Windows.Forms.Label lbtNetProfits;
+        private System.Windows.Forms.Label label9;
     }
 }

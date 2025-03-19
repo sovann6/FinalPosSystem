@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +15,8 @@ namespace POS_System.Folder_Forms
 {
     public partial class Dashoard : Form
     {
+        private decimal IncomeToday { get; set; }
+        private decimal ExpenseToday { get; set; }
         public Dashoard(string role,string fullname, byte[] img)
         {
             InitializeComponent();
@@ -27,9 +30,46 @@ namespace POS_System.Folder_Forms
             }
             
         }
+        public (decimal totalIncome, decimal totalExpense) GetTodayIncomeExpenseTotals()
+        {
+                decimal totalIncome = 0, totalExpense = 0;
+            
+                try
+                {
+                    string query = @"
+                    SELECT 
+                        (SELECT ISNULL(SUM(totals_price), 0) FROM tbl_Income WHERE CAST(Income_date AS DATE) = CAST(GETDATE() AS DATE)) AS TotalIncome,
+                        (SELECT ISNULL(SUM(amount), 0) FROM tbl_Expanse WHERE CAST(expanse_date AS DATE) = CAST(GETDATE() AS DATE)) AS TotalExpense";
 
+                    using (SqlCommand cmd = new SqlCommand(query, DataConnection.DataCon))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                totalIncome = reader.GetDecimal(0);
+                                totalExpense = reader.GetDecimal(1);
+                                string totalIncomeString = totalIncome.ToString("C");
+                                string totalExpenseString = totalExpense.ToString("C");
+                                txtIncome.Text = totalIncomeString;
+                                lbtExpanse.Text = totalExpenseString;
+                                decimal totalProfit = totalIncome - totalExpense;
+                                string totalProfitString = totalProfit.ToString("C");
+                                lbtNetProfits.Text = totalProfitString;
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            
+            return (totalIncome, totalExpense);
+        }
         private void Dashoard_Load(object sender, EventArgs e)
         {
+            GetTodayIncomeExpenseTotals();
             int currentHour = DateTime.Now.Hour;  
             Time.Text =  GetTimeOfDay(currentHour) + "!";
             string countTotalEmp = "SELECT COUNT(*) FROM tbl_Employees;";
@@ -82,6 +122,15 @@ namespace POS_System.Folder_Forms
             }
             r4.Close();
             s4.Dispose();
+            SqlCommand s5 = new SqlCommand("sp_CountOrder",DataConnection.DataCon);
+            s5.CommandType = CommandType.StoredProcedure;
+            SqlDataReader r5=s5.ExecuteReader();
+            while (r5.Read()) {
+                int OrderCount = int.Parse(r5[0].ToString());
+                lbOrders.Text = OrderCount.ToString();
+            }
+            r5.Close();
+            s5.Dispose();
         }
 
         private string GetTimeOfDay(int hour)

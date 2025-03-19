@@ -32,6 +32,7 @@ namespace POS_System.Sub_Form.Orders_Form
         }
         public int Product_ID { get; set; }
         public int Stock { get; set; }
+        public decimal costPrice { get; set; }
 
         private void btn_AddItem_Click(object sender, EventArgs e)
         {

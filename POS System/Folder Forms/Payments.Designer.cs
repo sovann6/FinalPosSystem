@@ -445,6 +445,7 @@
             this.btnPrint.Size = new System.Drawing.Size(194, 45);
             this.btnPrint.TabIndex = 28;
             this.btnPrint.Text = "Print";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // lbDate
             // 

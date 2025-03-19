@@ -66,6 +66,7 @@
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Desplay)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -97,7 +98,8 @@
             this.Price,
             this.Amount,
             this.delete,
-            this.Column1});
+            this.Column1,
+            this.Column2});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -139,17 +141,6 @@
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Controls.Add(this.Product_Card);
-            this.flowLayoutPanel1.Controls.Add(this.orders2);
-            this.flowLayoutPanel1.Controls.Add(this.orders3);
-            this.flowLayoutPanel1.Controls.Add(this.orders4);
-            this.flowLayoutPanel1.Controls.Add(this.orders5);
-            this.flowLayoutPanel1.Controls.Add(this.orders6);
-            this.flowLayoutPanel1.Controls.Add(this.orders7);
-            this.flowLayoutPanel1.Controls.Add(this.orders8);
-            this.flowLayoutPanel1.Controls.Add(this.orders9);
-            this.flowLayoutPanel1.Controls.Add(this.orders10);
-            this.flowLayoutPanel1.Controls.Add(this.orders11);
-            this.flowLayoutPanel1.Controls.Add(this.orders12);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(8, 89);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(960, 898);
@@ -157,6 +148,11 @@
             // 
             // Product_Card
             // 
+            this.Product_Card.costPrice = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this.Product_Card.Location = new System.Drawing.Point(3, 4);
             this.Product_Card.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Product_Card.Name = "Product_Card";
@@ -165,10 +161,16 @@
             this.Product_Card.Product_Name = "Product Name";
             this.Product_Card.Product_Price = "Price";
             this.Product_Card.Size = new System.Drawing.Size(202, 267);
+            this.Product_Card.Stock = 0;
             this.Product_Card.TabIndex = 0;
             // 
             // orders2
             // 
+            this.orders2.costPrice = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this.orders2.Location = new System.Drawing.Point(212, 5);
             this.orders2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.orders2.Name = "orders2";
@@ -177,10 +179,16 @@
             this.orders2.Product_Name = "Product Name";
             this.orders2.Product_Price = "Price";
             this.orders2.Size = new System.Drawing.Size(202, 267);
+            this.orders2.Stock = 0;
             this.orders2.TabIndex = 1;
             // 
             // orders3
             // 
+            this.orders3.costPrice = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this.orders3.Location = new System.Drawing.Point(422, 5);
             this.orders3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.orders3.Name = "orders3";
@@ -189,10 +197,16 @@
             this.orders3.Product_Name = "Product Name";
             this.orders3.Product_Price = "Price";
             this.orders3.Size = new System.Drawing.Size(202, 267);
+            this.orders3.Stock = 0;
             this.orders3.TabIndex = 2;
             // 
             // orders4
             // 
+            this.orders4.costPrice = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this.orders4.Location = new System.Drawing.Point(632, 5);
             this.orders4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.orders4.Name = "orders4";
@@ -201,10 +215,16 @@
             this.orders4.Product_Name = "Product Name";
             this.orders4.Product_Price = "Price";
             this.orders4.Size = new System.Drawing.Size(202, 267);
+            this.orders4.Stock = 0;
             this.orders4.TabIndex = 3;
             // 
             // orders5
             // 
+            this.orders5.costPrice = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this.orders5.Location = new System.Drawing.Point(4, 282);
             this.orders5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.orders5.Name = "orders5";
@@ -213,10 +233,16 @@
             this.orders5.Product_Name = "Product Name";
             this.orders5.Product_Price = "Price";
             this.orders5.Size = new System.Drawing.Size(202, 267);
+            this.orders5.Stock = 0;
             this.orders5.TabIndex = 4;
             // 
             // orders6
             // 
+            this.orders6.costPrice = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this.orders6.Location = new System.Drawing.Point(216, 286);
             this.orders6.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
             this.orders6.Name = "orders6";
@@ -225,10 +251,16 @@
             this.orders6.Product_Name = "Product Name";
             this.orders6.Product_Price = "Price";
             this.orders6.Size = new System.Drawing.Size(202, 267);
+            this.orders6.Stock = 0;
             this.orders6.TabIndex = 5;
             // 
             // orders7
             // 
+            this.orders7.costPrice = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this.orders7.Location = new System.Drawing.Point(430, 286);
             this.orders7.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
             this.orders7.Name = "orders7";
@@ -237,10 +269,16 @@
             this.orders7.Product_Name = "Product Name";
             this.orders7.Product_Price = "Price";
             this.orders7.Size = new System.Drawing.Size(202, 267);
+            this.orders7.Stock = 0;
             this.orders7.TabIndex = 6;
             // 
             // orders8
             // 
+            this.orders8.costPrice = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this.orders8.Location = new System.Drawing.Point(644, 286);
             this.orders8.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
             this.orders8.Name = "orders8";
@@ -249,10 +287,16 @@
             this.orders8.Product_Name = "Product Name";
             this.orders8.Product_Price = "Price";
             this.orders8.Size = new System.Drawing.Size(202, 267);
+            this.orders8.Stock = 0;
             this.orders8.TabIndex = 7;
             // 
             // orders9
             // 
+            this.orders9.costPrice = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this.orders9.Location = new System.Drawing.Point(4, 567);
             this.orders9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.orders9.Name = "orders9";
@@ -261,10 +305,16 @@
             this.orders9.Product_Name = "Product Name";
             this.orders9.Product_Price = "Price";
             this.orders9.Size = new System.Drawing.Size(202, 267);
+            this.orders9.Stock = 0;
             this.orders9.TabIndex = 8;
             // 
             // orders10
             // 
+            this.orders10.costPrice = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this.orders10.Location = new System.Drawing.Point(214, 567);
             this.orders10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.orders10.Name = "orders10";
@@ -273,10 +323,16 @@
             this.orders10.Product_Name = "Product Name";
             this.orders10.Product_Price = "Price";
             this.orders10.Size = new System.Drawing.Size(202, 267);
+            this.orders10.Stock = 0;
             this.orders10.TabIndex = 9;
             // 
             // orders11
             // 
+            this.orders11.costPrice = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this.orders11.Location = new System.Drawing.Point(424, 567);
             this.orders11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.orders11.Name = "orders11";
@@ -285,10 +341,16 @@
             this.orders11.Product_Name = "Product Name";
             this.orders11.Product_Price = "Price";
             this.orders11.Size = new System.Drawing.Size(202, 267);
+            this.orders11.Stock = 0;
             this.orders11.TabIndex = 10;
             // 
             // orders12
             // 
+            this.orders12.costPrice = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this.orders12.Location = new System.Drawing.Point(634, 567);
             this.orders12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.orders12.Name = "orders12";
@@ -297,6 +359,7 @@
             this.orders12.Product_Name = "Product Name";
             this.orders12.Product_Price = "Price";
             this.orders12.Size = new System.Drawing.Size(202, 267);
+            this.orders12.Stock = 0;
             this.orders12.TabIndex = 11;
             // 
             // guna2Panel1
@@ -490,6 +553,13 @@
             this.Column1.Name = "Column1";
             this.Column1.Width = 5;
             // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column2.HeaderText = "";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 5;
+            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -554,5 +624,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewImageColumn delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

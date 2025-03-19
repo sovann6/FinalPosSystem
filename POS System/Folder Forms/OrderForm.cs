@@ -52,7 +52,8 @@ namespace POS_System.Folder_Forms
                         {
                             Orders PC = new Orders
                             {
-                                Stock= Convert.ToInt32(dr["stock_quantity"]),
+                                costPrice= decimal.Parse(dr["cost"].ToString()),
+                                Stock = Convert.ToInt32(dr["stock_quantity"]),
                                 Product_ID = Convert.ToInt32(dr["product_id"]),
                                 Product_Name = dr["product_name"].ToString(),
                                 Product_Price = dr["price"] != DBNull.Value ? Convert.ToDecimal(dr["price"]).ToString("C2") : "N/A" // Format as currency
@@ -109,6 +110,7 @@ namespace POS_System.Folder_Forms
                 MessageBox.Show("Invalid Product selection.");
                 return;
             }
+            decimal cost = Select_Product.costPrice;
             int selcteProductID = Select_Product.Product_ID;
             int stock = Select_Product.Stock;
             bool PExist = false;
@@ -124,20 +126,19 @@ namespace POS_System.Folder_Forms
                         return;
                     }
                     current++;
-
+                    
                     row.Cells[2].Value = current;
-
+                    
                     string priceText = Select_Product.Product_Price.Replace("$", "").Replace("€", "").Trim();
                     if (decimal.TryParse(priceText, out decimal unitPrice))
                     {
                         row.Cells[4].Value = unitPrice * current;
                     }
-
                     PExist = true;
                     break;
                 }
             }
-
+            
             if (!PExist)
             {
                 Desplay.RowTemplate.Height = 80;
@@ -156,9 +157,10 @@ namespace POS_System.Folder_Forms
                 newRow.Cells[0].Value = rowIndex + 1;
                 newRow.Cells[1].Value = Select_Product.Product_Name;
                 newRow.Cells[2].Value = 1;
-                newRow.Cells[3].Value = Select_Product.Product_Price;
+                newRow.Cells[3].Value = Select_Product.Product_Price;     
                 newRow.Cells[4].Value = unitPrice;
                 newRow.Cells[6].Value = Select_Product.Product_ID;
+                newRow.Cells[7].Value = Select_Product.costPrice;
             }
             SumAmount();
             CountItems();
@@ -228,7 +230,7 @@ namespace POS_System.Folder_Forms
             string SelectCategory = ComCat.SelectedItem.ToString();
             LoadProduct(SelectCategory);
         }
-
+       
         private void btnPay_Click(object sender, EventArgs e)
         {
             string RoleName = Login.RoleName;
@@ -241,19 +243,82 @@ namespace POS_System.Folder_Forms
             Payments p = new Payments(EmpID,RoleName);
             p.GetProductDetails(Desplay);
             p.ShowDialog();
+            
             if (p.DialogResult == DialogResult.OK)
             {
-                int OrderID = InsertOrder(p.DisValue, p.TotalPay, TotalAmount, Tax, EmpID);
+                int OrderID = InsertOrder(p.DisValue,p.TotalPay,p.Price,p.Discount,EmpID);
                 if (OrderID > 0)
                 {
                     InsertOrderDetail(OrderID);
                     UpdateStock(OrderID);
+                    InsertIncome(OrderID, p.TotalPay);
                 }
+                PrintReport(OrderID, p.Discount, p.CashReceived);
                 Desplay.Rows.Clear();
                 CountItems();
                 SumAmount();
             }
 
+        }
+        private void PrintReport(int orderID, decimal discount, decimal cashReceived)
+        {
+            FrmReport report = new FrmReport();
+            List<ReportDetails> arr = new List<ReportDetails>();
+
+            // Assuming 'dataGridView1' is the name of your DataGridView
+            if (Desplay.Rows.Count == 0)
+            {
+                MessageBox.Show("No data to print.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            foreach (DataGridViewRow row in Desplay.Rows)
+            {
+                // Check for null or empty rows before accessing cells
+                if (row.IsNewRow || row.Cells[0].Value == null || row.Cells[1].Value == null ||
+                    row.Cells[2].Value == null || row.Cells[3].Value == null)
+                {
+                    continue; // Skip empty rows
+                }
+
+                // Get values from the DataGridView cells
+                int no = int.Parse(row.Cells[0].Value + "");
+                string pName = row.Cells[1].Value.ToString();
+                decimal price;
+                if (row.Cells[3].Value != null && !string.IsNullOrEmpty(row.Cells[3].Value.ToString()))
+                {
+                    string priceString = row.Cells[3].Value.ToString().Replace("$", "").Replace(",", "").Trim(); // Remove '$', ',', and spaces
+
+                    if (decimal.TryParse(priceString, out price))
+                    {
+                        // Parsing successful, 'price' now contains the decimal value.
+                    }
+                    else
+                    {
+                        // Parsing failed, handle the error (e.g., log it, show a message, skip the row)
+                        MessageBox.Show($"Invalid price value in row {row.Index}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        continue; // Skip the row
+                    }
+                }
+                else
+                {
+                    // Handle null or empty value (e.g., set a default value, skip the row)
+                    MessageBox.Show($"Price value is missing in row {row.Index}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    continue; // Skip the row
+                }
+                int quantity = int.Parse(row.Cells[2].Value + "");
+
+                ReportDetails obj = new ReportDetails(no, pName, price, quantity);
+                arr.Add(obj);
+            }
+
+            report.SetReportData(arr);
+            report.Parameter(0, orderID.ToString());
+            report.Parameter(1, Login.FullName);
+            report.Parameter(2, discount.ToString("F2"));
+            report.Parameter(3, cashReceived.ToString("F2"));
+            //report.ShowDialog();
+            report.Print(1, true, 1, -1);
         }
         private void InsertOrderDetail(int OrderID)
         {
@@ -275,10 +340,10 @@ namespace POS_System.Folder_Forms
                             cmd.Parameters.AddWithValue("@ProductID", productID);
                             cmd.Parameters.AddWithValue("@Quantity", quantity);
                             cmd.ExecuteNonQuery();
-                            MessageBox.Show("Order Details Inserted Successfully", "Order Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
+               
             }
             catch (Exception ex)
             {
@@ -286,7 +351,7 @@ namespace POS_System.Folder_Forms
             }
         }
        
-        private int InsertOrder(decimal discountAmount, decimal totalPay, decimal price, decimal discount, string empID)
+        private int InsertOrder(decimal discountValue, decimal totalPay, decimal price, decimal discount, string empID)
         {
             string date = DateTime.Now.ToString("dd-MMM-yyyy");
             string time = DateTime.Now.ToString("hh:mm:ss tt");
@@ -300,8 +365,8 @@ namespace POS_System.Folder_Forms
                     cmd.Parameters.AddWithValue("@OrderDate", date);
                     cmd.Parameters.AddWithValue("@OrderTime", time);
                     cmd.Parameters.AddWithValue("@Price", price);
-                    cmd.Parameters.AddWithValue("@DiscountValue", discountAmount);
-                    cmd.Parameters.AddWithValue("@DiscountAmount", discount);
+                    cmd.Parameters.AddWithValue("@DiscountValue", discount);
+                    cmd.Parameters.AddWithValue("@DiscountAmount", discountValue);
                     cmd.Parameters.AddWithValue("@TotalPrice", totalPay);
                     cmd.Parameters.AddWithValue("@EmployeeID", empID);
 
@@ -347,6 +412,37 @@ namespace POS_System.Folder_Forms
                 MessageBox.Show("Error updating stock: " + ex.Message, "Stock Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void InsertIncome(int orderId,decimal TotalPay)
+        {
 
+            decimal TotalCost = 0;
+            foreach (DataGridViewRow row in Desplay.Rows) {
+                if (row.Cells[7].Value != null)
+                {
+                    int qty = Convert.ToInt32(row.Cells[2].Value);
+                    decimal cost = Convert.ToDecimal(row.Cells[7].Value);
+                    TotalCost +=  (cost*qty);
+                }
+            }
+            decimal Profit = TotalPay - TotalCost;
+            string date = DateTime.Now.ToString("dd-MMM-yyyy");
+            try
+            {
+                SqlCommand s = new SqlCommand("sp_InsertIncome", DataConnection.DataCon);
+                s.CommandType = CommandType.StoredProcedure;
+                s.Parameters.AddWithValue("@SaleID", orderId);
+                s.Parameters.AddWithValue("@IncomeDate",date);
+                s.Parameters.AddWithValue("@TotalPrice",TotalPay);
+                s.Parameters.AddWithValue("@Tax",Tax);
+                s.Parameters.AddWithValue("@Profit",Profit);
+                s.ExecuteNonQuery();
+                
+                s.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Insert Income Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -62,7 +62,7 @@
             this.guna2ControlBox3.BackColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.guna2ControlBox3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox3.IconColor = System.Drawing.Color.Gray;
+            this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox3.Location = new System.Drawing.Point(1504, 1);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(45, 29);
@@ -111,7 +111,8 @@
             this.guna2ControlBox2.BackColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
             this.guna2ControlBox2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.Gray;
+            this.guna2ControlBox2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox2.Location = new System.Drawing.Point(1546, 1);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
@@ -119,7 +120,7 @@
             // 
             // panel_top
             // 
-            this.panel_top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.panel_top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(161)))), ((int)(((byte)(75)))));
             this.panel_top.Controls.Add(this.Fullname);
             this.panel_top.Controls.Add(this.LogOut);
             this.panel_top.Controls.Add(this.label_TEXT);
@@ -191,7 +192,7 @@
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.Gray;
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox1.Location = new System.Drawing.Point(1589, 1);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
@@ -238,6 +239,7 @@
             this.txtIncome.TabIndex = 10;
             this.txtIncome.Text = "Income";
             this.txtIncome.TextOffset = new System.Drawing.Point(10, 0);
+            this.txtIncome.Click += new System.EventHandler(this.txtIncome_Click);
             // 
             // txtExpense
             // 
@@ -261,6 +263,7 @@
             this.txtExpense.TabIndex = 9;
             this.txtExpense.Text = "Expense";
             this.txtExpense.TextOffset = new System.Drawing.Point(10, 0);
+            this.txtExpense.Click += new System.EventHandler(this.txtExpense_Click);
             // 
             // panel_container
             // 

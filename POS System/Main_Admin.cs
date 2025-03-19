@@ -72,15 +72,17 @@ namespace POS_System
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
+            string RoleName = Login.RoleName;
             label_TEXT.Text = "Products";
-            contianer(new Folder_Forms.Products());
+            contianer(new Folder_Forms.Products(RoleName));
             buttonManager.SetActiveButton(btPro);
         }
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
+            string RoleName = Login.RoleName;
             label_TEXT.Text = "Categories";
-            contianer(new Folder_Forms.Category());
+            contianer(new Folder_Forms.Category(RoleName));
             buttonManager.SetActiveButton(btcate);
         }
 
@@ -113,12 +115,14 @@ namespace POS_System
         {
             buttonManager.SetActiveButton(btnIncome);
             label_TEXT.Text = "Income";
+            contianer(new Folder_Forms.Income());
         }
 
         private void btnExpense_Click(object sender, EventArgs e)
         {
             buttonManager.SetActiveButton(btnExpense);
             label_TEXT.Text = "Expense";
+            contianer(new Folder_Forms.Expense());
         }
     }
 }

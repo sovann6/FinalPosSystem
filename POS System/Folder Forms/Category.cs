@@ -13,9 +13,11 @@ namespace POS_System.Folder_Forms
 {
     public partial class Category : Form
     {
-        public Category()
+        private string role;
+        public Category(string role)
         {
             InitializeComponent();
+            this.role = role;
         }
 
         private void Category_Load(object sender, EventArgs e)
@@ -127,7 +129,13 @@ namespace POS_System.Folder_Forms
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if(DatagridviewCat.SelectedRows.Count == 0)
+            if (role.Equals("sale"))
+            {
+                //Check if the user has selected a category to delete (if not, show a warning message
+                MessageBox.Show("You do not have permission to delete a category", "Permission Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (DatagridviewCat.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Please Select a Category to Delete", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

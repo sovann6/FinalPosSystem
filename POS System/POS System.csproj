@@ -34,11 +34,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu.Licensing, Version=3.2.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b" />
+    <Reference Include="Bunifu.UI.WinForms.1.5.3">
+      <HintPath>..\..\..\..\Re\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.1.5.3.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuButton">
       <HintPath>..\..\..\..\Re\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
       <HintPath>..\..\..\..\Re\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDatePicker">
+      <HintPath>..\..\..\..\Re\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuDatePicker.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuGradientPanel">
       <HintPath>..\..\..\..\Re\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuGradientPanel.dll</HintPath>
@@ -49,6 +55,10 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuPictureBox">
       <HintPath>..\..\..\..\Re\BunifuCrack-main\BunifuCrack-main\Bunifu.UI.WinForms.BunifuPictureBox.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Guna.UI, Version=1.9.0.1, Culture=neutral, PublicKeyToken=ad275b4be6718d4b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Re\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
@@ -58,6 +68,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -71,6 +85,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ButtonManager.cs" />
+    <Compile Include="CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DataConnection.cs" />
     <Compile Include="Folder Forms\Category.cs">
       <SubType>Form</SubType>
@@ -126,6 +146,12 @@
     <Compile Include="Folder Forms\Products.Designer.cs">
       <DependentUpon>Products.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReport.Designer.cs">
+      <DependentUpon>FrmReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Loading.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +173,7 @@
     <Compile Include="OrderDetails.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportDetails.cs" />
     <Compile Include="Sub Form\Category Form\Add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +197,12 @@
     </Compile>
     <Compile Include="Sub Form\Employee Form\UpdateEmp.Designer.cs">
       <DependentUpon>UpdateEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub Form\Expanse\AddExpanse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub Form\Expanse\AddExpanse.Designer.cs">
+      <DependentUpon>AddExpanse.cs</DependentUpon>
     </Compile>
     <Compile Include="Sub Form\Orders Form\Orders.cs">
       <SubType>UserControl</SubType>
@@ -201,6 +234,10 @@
     <Compile Include="Sub Form\Product Form\Update.Designer.cs">
       <DependentUpon>Update.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport11.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Folder Forms\Category.resx">
       <DependentUpon>Category.cs</DependentUpon>
     </EmbeddedResource>
@@ -209,6 +246,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Folder Forms\Employee.resx">
       <DependentUpon>Employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Folder Forms\Expense.resx">
+      <DependentUpon>Expense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Folder Forms\Income.resx">
+      <DependentUpon>Income.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Folder Forms\Main_Sales.resx">
       <DependentUpon>Main_Sales.cs</DependentUpon>
@@ -221,6 +264,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Folder Forms\Products.resx">
       <DependentUpon>Products.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReport.resx">
+      <DependentUpon>FrmReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Loading.resx">
       <DependentUpon>Loading.cs</DependentUpon>
@@ -254,6 +300,9 @@
     <EmbeddedResource Include="Sub Form\Employee Form\UpdateEmp.resx">
       <DependentUpon>UpdateEmp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sub Form\Expanse\AddExpanse.resx">
+      <DependentUpon>AddExpanse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sub Form\Orders Form\Orders.resx">
       <DependentUpon>Orders.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,6 +334,11 @@
   <ItemGroup>
     <None Include="Resources\C__A__M__E__R__A_1-removebg-preview.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

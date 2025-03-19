@@ -17,10 +17,11 @@ namespace POS_System.Folder_Forms
     public partial class Main_Sales : Form
     {
         private ButtonManager buttonManager;
+        private string Role;
         public Main_Sales(string fullname,string role, byte[] img)
         {
             InitializeComponent();
-            buttonManager = new ButtonManager(new Guna2Button[] { btndashbaord, btnPro,btnCat,btnOrder });
+            buttonManager = new ButtonManager(new Guna2Button[] { btndashbaord, btnPro,btnCat,btnOrder,txtExpense,txtIncome });
             Fullname.Text=fullname;
             if (img != null) {
                 using (MemoryStream ms = new MemoryStream(img)) { 
@@ -28,6 +29,7 @@ namespace POS_System.Folder_Forms
                     Picture.Image = image;
                 }
             }
+            this.Role = role;
         }
 
         private void Main_Sales_Load(object sender, EventArgs e)
@@ -78,15 +80,17 @@ namespace POS_System.Folder_Forms
 
         private void btnPro_Click(object sender, EventArgs e)
         {
+            string RoleName = Login.RoleName;
             label_TEXT.Text = "Products";
-            contianer(new Folder_Forms.Products());
+            contianer(new Folder_Forms.Products(RoleName));
             buttonManager.SetActiveButton(btnPro);
         }
 
         private void btnCat_Click(object sender, EventArgs e)
         {
+            string RoleName = Login.RoleName;
             label_TEXT.Text = "Categories";
-            contianer(new Folder_Forms.Category());
+            contianer(new Folder_Forms.Category(RoleName));
             buttonManager.SetActiveButton(btnCat);
         }
 
@@ -97,6 +101,32 @@ namespace POS_System.Folder_Forms
             string Role = Login.RoleName;
             contianer(new Folder_Forms.OrderForm());
             buttonManager.SetActiveButton(btnOrder);
+        }
+
+        private void txtExpense_Click(object sender, EventArgs e)
+        {
+            if (Role == "sale")
+            {
+                MessageBox.Show("You do not have permission to view Expanse.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            label_TEXT.Text = "Expanses";
+            contianer(new Folder_Forms.Expense());
+            buttonManager.SetActiveButton(txtExpense);
+           
+        }
+
+        private void txtIncome_Click(object sender, EventArgs e)
+        {
+            if (Role == "sale")
+            {
+                MessageBox.Show("You do not have permission to view Income.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            label_TEXT.Text = "Income";
+            contianer(new Folder_Forms.Income());
+            buttonManager.SetActiveButton(txtIncome);
+            
         }
     }
 }

@@ -13,9 +13,11 @@ namespace POS_System.Folder_Forms
 {
     public partial class Products : Form
     {
-        public Products()
+        private string role;
+        public Products(string role)
         {
             InitializeComponent();
+            this.role = role;
         }
 
         private void Products_Load(object sender, EventArgs e)
@@ -128,7 +130,12 @@ namespace POS_System.Folder_Forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if(DatagridviewPro.SelectedRows.Count == 0)
+            if(!role.Equals("admin"))
+            {
+                MessageBox.Show("You do not have permission to delete products.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (DatagridviewPro.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Please select a product to delete.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

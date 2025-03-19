@@ -1,5 +1,4 @@
-﻿using POS_System.Sub_Form.Orders_Form;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -45,6 +44,7 @@ namespace POS_System.Folder_Forms
             {
                 ComboDis.SelectedIndex = 0;
             }
+            btnPayment.Enabled = false;
 
         }
 
@@ -233,8 +233,11 @@ namespace POS_System.Folder_Forms
                               MessageBoxIcon.Error);
             }
         }
-       
+        
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
 

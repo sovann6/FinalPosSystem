@@ -102,69 +102,83 @@ namespace POS_System.Folder_Forms
             ComCat.SelectedIndex = 0;
         }
 
-       
+
         private void Product_Card_AddItem(object sender, EventArgs e)
         {
-            if (!(sender is Orders Select_Product) || Select_Product == null)
+            if (!(sender is Orders Select_Product))
             {
                 MessageBox.Show("Invalid Product selection.");
                 return;
             }
-            decimal cost = Select_Product.costPrice;
-            int selcteProductID = Select_Product.Product_ID;
+
             int stock = Select_Product.Stock;
+
+            // **Check if the stock is 0 and prevent adding the item**
+            if (stock <= 0)
+            {
+                MessageBox.Show($"Product '{Select_Product.Product_Name}' is out of stock!", "Out of Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            decimal cost = Select_Product.costPrice;
+            int selectedProductID = Select_Product.Product_ID;
             bool PExist = false;
+
+            Desplay.SuspendLayout(); // Optimize UI performance
+
             foreach (DataGridViewRow row in Desplay.Rows)
             {
-                if (row.Cells[1].Value != null && row.Cells[1].Value.ToString() == Select_Product.Product_Name)
+                if (row.Cells[1].Value?.ToString() == Select_Product.Product_Name)
                 {
-                    
                     int current = Convert.ToInt32(row.Cells[2].Value);
-                    if (current +1> stock)
+
+                    if (current >= stock) // Prevent exceeding stock limit
                     {
-                        MessageBox.Show("Not enough stock for product: " + Select_Product.Product_Name,"Warning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                        MessageBox.Show($"Not enough stock for product: {Select_Product.Product_Name}", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        Desplay.ResumeLayout();
                         return;
                     }
+
                     current++;
-                    
                     row.Cells[2].Value = current;
-                    
-                    string priceText = Select_Product.Product_Price.Replace("$", "").Replace("€", "").Trim();
-                    if (decimal.TryParse(priceText, out decimal unitPrice))
-                    {
-                        row.Cells[4].Value = unitPrice * current;
-                    }
+
+                    decimal unitPrice = ParsePrice(Select_Product.Product_Price);
+                    row.Cells[4].Value = unitPrice * current;
                     PExist = true;
                     break;
                 }
             }
-            
+
             if (!PExist)
             {
                 Desplay.RowTemplate.Height = 80;
-                // Parse the unit price.
-                string priceText = Select_Product.Product_Price.Replace("$", "").Replace("€", "").Trim();
-                decimal unitPrice = 0;
-                if (!decimal.TryParse(priceText, out unitPrice))
-                {
-                    MessageBox.Show("Invalid product price format.");
-                }
+                decimal unitPrice = ParsePrice(Select_Product.Product_Price);
 
-                // Add a new row.
                 int rowIndex = Desplay.Rows.Add();
                 DataGridViewRow newRow = Desplay.Rows[rowIndex];
-                // Set the "No." column value as the row index + 1.
+
                 newRow.Cells[0].Value = rowIndex + 1;
                 newRow.Cells[1].Value = Select_Product.Product_Name;
                 newRow.Cells[2].Value = 1;
-                newRow.Cells[3].Value = Select_Product.Product_Price;     
+                newRow.Cells[3].Value = Select_Product.Product_Price;
                 newRow.Cells[4].Value = unitPrice;
                 newRow.Cells[6].Value = Select_Product.Product_ID;
                 newRow.Cells[7].Value = Select_Product.costPrice;
             }
+
+            Desplay.ResumeLayout(); // Resume UI updates
+
             SumAmount();
             CountItems();
         }
+
+        // **Helper Function to Parse Price**
+        private decimal ParsePrice(string priceText)
+        {
+            priceText = priceText.Replace("$", "").Replace("€", "").Trim();
+            return decimal.TryParse(priceText, out decimal price) ? price : 0;
+        }
+
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
@@ -230,36 +244,45 @@ namespace POS_System.Folder_Forms
             string SelectCategory = ComCat.SelectedItem.ToString();
             LoadProduct(SelectCategory);
         }
-       
+
         private void btnPay_Click(object sender, EventArgs e)
         {
             string RoleName = Login.RoleName;
             string EmpID = Login.Emp_ID;
+
             if (Desplay.Rows.Count == 0)
             {
                 MessageBox.Show("No items to pay for.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            Payments p = new Payments(EmpID,RoleName);
+
+            Payments p = new Payments(EmpID, RoleName);
             p.GetProductDetails(Desplay);
             p.ShowDialog();
-            
+
             if (p.DialogResult == DialogResult.OK)
             {
-                int OrderID = InsertOrder(p.DisValue,p.TotalPay,p.Price,p.Discount,EmpID);
-                if (OrderID > 0)
-                {
-                    InsertOrderDetail(OrderID);
-                    UpdateStock(OrderID);
-                    InsertIncome(OrderID, p.TotalPay);
-                }
-                PrintReport(OrderID, p.Discount, p.CashReceived);
-                Desplay.Rows.Clear();
-                CountItems();
-                SumAmount();
-            }
+                int OrderID = InsertOrder(p.DisValue, p.TotalPay, p.Price, p.Discount, EmpID);
 
+                if (OrderID > 0) // Ensure order was successfully inserted
+                {
+                    InsertOrderDetail(OrderID); // Insert the order details
+                    UpdateStock(OrderID);       // Update the stock
+                    InsertIncome(OrderID, p.TotalPay); // Record the income
+
+                    // Print the receipt
+                    PrintReport(OrderID, p.Discount, p.CashReceived);
+                    Desplay.Rows.Clear();
+                    CountItems();
+                    SumAmount();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to process order. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
+
         private void PrintReport(int orderID, decimal discount, decimal cashReceived)
         {
             FrmReport report = new FrmReport();

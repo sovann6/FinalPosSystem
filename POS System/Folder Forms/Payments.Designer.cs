@@ -62,7 +62,6 @@
             this.txtCashReceived = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnPayment = new Guna.UI2.WinForms.Guna2Button();
-            this.btnPrint = new Guna.UI2.WinForms.Guna2Button();
             this.lbDate = new System.Windows.Forms.Label();
             this.lbTime = new System.Windows.Forms.Label();
             this.lbRole = new System.Windows.Forms.Label();
@@ -429,24 +428,6 @@
             this.btnPayment.Text = "Payment";
             this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
-            // btnPrint
-            // 
-            this.btnPrint.Animated = true;
-            this.btnPrint.BorderRadius = 10;
-            this.btnPrint.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPrint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPrint.FillColor = System.Drawing.Color.Olive;
-            this.btnPrint.Font = new System.Drawing.Font("Bahnschrift SemiBold SemiConden", 18F, System.Drawing.FontStyle.Bold);
-            this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.Location = new System.Drawing.Point(250, 575);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(194, 45);
-            this.btnPrint.TabIndex = 28;
-            this.btnPrint.Text = "Print";
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
             // lbDate
             // 
             this.lbDate.AutoSize = true;
@@ -524,7 +505,6 @@
             this.Controls.Add(this.lbRole);
             this.Controls.Add(this.lbTime);
             this.Controls.Add(this.lbDate);
-            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnPayment);
             this.Controls.Add(this.guna2TextBox2);
             this.Controls.Add(this.txtCashReceived);
@@ -590,7 +570,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtCashReceived;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
         private Guna.UI2.WinForms.Guna2Button btnPayment;
-        private Guna.UI2.WinForms.Guna2Button btnPrint;
         private System.Windows.Forms.Label lbDate;
         private System.Windows.Forms.Label lbTime;
         private System.Windows.Forms.Label lbRole;

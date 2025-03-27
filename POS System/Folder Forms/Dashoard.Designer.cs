@@ -396,7 +396,7 @@
             this.label_Name.BackColor = System.Drawing.Color.Transparent;
             this.label_Name.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Name.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label_Name.Location = new System.Drawing.Point(420, 305);
+            this.label_Name.Location = new System.Drawing.Point(358, 305);
             this.label_Name.Name = "label_Name";
             this.label_Name.Size = new System.Drawing.Size(112, 57);
             this.label_Name.TabIndex = 2;
@@ -410,9 +410,9 @@
             this.label13.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label13.Location = new System.Drawing.Point(106, 305);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(322, 57);
+            this.label13.Size = new System.Drawing.Size(242, 57);
             this.label13.TabIndex = 1;
-            this.label13.Text = "Wellcome Mr / Miss";
+            this.label13.Text = "Wellcome Mrr.";
             // 
             // guna2CirclePictureBox1
             // 

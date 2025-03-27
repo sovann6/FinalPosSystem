@@ -68,7 +68,6 @@ namespace POS_System.Folder_Forms
                             string formattedIncome = income.ToString("C2");
                             string formattedTax = tax.ToString("C2");
                             string formattedTotal = totalAmount.ToString("C2");
-
                             DataIcome.Rows.Add(incomeID, saleID, formattedDate, formattedTotal, formattedTax, formattedIncome);
                         }
                     }
@@ -128,30 +127,36 @@ namespace POS_System.Folder_Forms
             {
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    while (reader.Read()) { 
+                    while (reader.Read())
+                    {
                         double Expanse = Convert.ToDouble(reader[0].ToString());
                         string FormateExpanse = Expanse.ToString("C2");
                         TotalsExpanse.Text = FormateExpanse;
                         TotalExpanses = Expanse;
                     }
                 }
-                
+
             }
-            using (SqlCommand s = new SqlCommand(sql1, DataConnection.DataCon)) {
-                using (SqlDataReader reader = s.ExecuteReader()) {
-                    while (reader.Read()) { 
-                        double Tax=Convert.ToDouble(reader[0].ToString());
+            using (SqlCommand s = new SqlCommand(sql1, DataConnection.DataCon))
+            {
+                using (SqlDataReader reader = s.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        double Tax = Convert.ToDouble(reader[0].ToString());
                         TAX = Tax;
-                        double Profit=Convert.ToDouble(reader[1].ToString());
+                        double Profit = Convert.ToDouble(reader[1].ToString());
                         string formateProfit = Profit.ToString("C2");
                         txtIncome.Text = formateProfit;
+                        lbTotalsIn.Text = formateProfit;
                         _amount = Profit;
                     }
                 }
             }
             string sql2 = "SELECT Total_Discount FROM v_Discount;";
-            using (SqlCommand SC = new SqlCommand(sql2, DataConnection.DataCon)) {
-                using (SqlDataReader r =SC.ExecuteReader())
+            using (SqlCommand SC = new SqlCommand(sql2, DataConnection.DataCon))
+            {
+                using (SqlDataReader r = SC.ExecuteReader())
                 {
                     while (r.Read())
                     {
@@ -162,7 +167,7 @@ namespace POS_System.Folder_Forms
             }
             double operatingProfit = _amount - TotalExpanses;
             TotalsOperatingPro.Text = operatingProfit > 0 ? operatingProfit.ToString("C2") : "N/A";
-
+            lbTotalsEx.Text = TotalExpanses.ToString("C2");
             //Calculate Net Profit
             double netProfit = operatingProfit - TAX;
             NetProfit.Text = netProfit.ToString("C2");
@@ -170,6 +175,18 @@ namespace POS_System.Folder_Forms
             double netExpanse = Dis - TotalExpanses;
             NetExpanse.Text = netExpanse.ToString("C2");
         }
+
+        /* private void CalculateFinancials(object sender, EventArgs e)
+         {
+             foreach (DataGridViewRow row in DataIcome.Rows)
+             {
+
+                 decimal tax = Convert.ToDecimal(row.Cells[4].Value);
+                 decimal income = Convert.ToDecimal(row.Cells[5].Value);
+                 decimal totalIncome = income - tax;
+                 decimal Amount += Convert.ToDouble(totalIncome);
+             }
+         }*/
 
     }
 }

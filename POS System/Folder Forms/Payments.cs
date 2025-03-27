@@ -44,7 +44,6 @@ namespace POS_System.Folder_Forms
             {
                 ComboDis.SelectedIndex = 0;
             }
-            btnPayment.Enabled = false;
 
         }
 
@@ -115,11 +114,21 @@ namespace POS_System.Folder_Forms
         private void btnPayment_Click(object sender, EventArgs e)
         {
 
-
-            DialogResult = DialogResult.OK;
-            if (DialogResult == DialogResult.OK)
+            if (TotalPay <= 0 | txtCashReceived.Text=="")
             {
-               
+                MessageBox.Show("Total payment must be greater than zero!", "Payment Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (CashReceived < TotalPay)
+            {
+                MessageBox.Show("Insufficient cash received!", "Payment Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            DialogResult result = MessageBox.Show("Confirm Payment?", "Payment", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                DialogResult = DialogResult.OK;
                 this.Close();
             }
         }
@@ -136,22 +145,22 @@ namespace POS_System.Folder_Forms
             // Assuming ComboDis is your ComboBox
             if (ComboDis.SelectedItem != null)
             {
-                string dis = ComboDis.SelectedItem.ToString(); // Get selected item from ComboBox
-                bool isPercentage = dis.EndsWith("%"); // Check if the value is a percentage
-                string numberPart = isPercentage ? dis.TrimEnd('%') : dis; // Remove '%' if it's a percentage
+                string dis = ComboDis.SelectedItem.ToString(); 
+                bool isPercentage = dis.EndsWith("%"); 
+                string numberPart = isPercentage ? dis.TrimEnd('%') : dis; 
 
                 if (decimal.TryParse(numberPart, out decimal parsedValue))
                 {
-                    // Assign the parsed value to the Discount property
+                   
                     Discount = parsedValue;
 
                     if (isPercentage)
                     {
-                        DisValue = TotalAmount * (parsedValue / 100); // Percentage discount
+                        DisValue = TotalAmount * (parsedValue / 100); 
                     }
                     else
                     {
-                        DisValue = parsedValue; // Fixed discount
+                        DisValue = parsedValue; 
                     }
 
                     DisAmount.Text = DisValue.ToString("C2");
@@ -190,7 +199,6 @@ namespace POS_System.Folder_Forms
                 if (string.IsNullOrEmpty(input))
                 {
                     lbReturn.Text = "$0.00";
-                    btnPayment.Enabled = false;
                     return;
                 }
 
@@ -211,7 +219,6 @@ namespace POS_System.Folder_Forms
                     else
                     {
                         lbReturn.Text = "$0.00";
-                        btnPayment.Enabled = false;
                     }
                 }
                 else
@@ -234,10 +241,6 @@ namespace POS_System.Folder_Forms
             }
         }
         
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
 

@@ -47,16 +47,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.NetExpanse = new System.Windows.Forms.Label();
-            this.OperatingExpanse = new System.Windows.Forms.Label();
             this.TotalsExpanse = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lbTotalsIn = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lbTotalsEx = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.ComboO = new Guna.UI2.WinForms.Guna2ComboBox();
             this.EndDate = new Guna.UI.WinForms.GunaDateTimePicker();
@@ -245,10 +243,8 @@
             this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel2.BorderRadius = 15;
             this.guna2Panel2.Controls.Add(this.NetExpanse);
-            this.guna2Panel2.Controls.Add(this.OperatingExpanse);
             this.guna2Panel2.Controls.Add(this.TotalsExpanse);
             this.guna2Panel2.Controls.Add(this.label4);
-            this.guna2Panel2.Controls.Add(this.label5);
             this.guna2Panel2.Controls.Add(this.label6);
             this.guna2Panel2.FillColor = System.Drawing.Color.MediumVioletRed;
             this.guna2Panel2.Location = new System.Drawing.Point(890, 403);
@@ -261,29 +257,18 @@
             this.NetExpanse.AutoSize = true;
             this.NetExpanse.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NetExpanse.ForeColor = System.Drawing.Color.Transparent;
-            this.NetExpanse.Location = new System.Drawing.Point(379, 175);
+            this.NetExpanse.Location = new System.Drawing.Point(379, 152);
             this.NetExpanse.Name = "NetExpanse";
             this.NetExpanse.Size = new System.Drawing.Size(90, 42);
             this.NetExpanse.TabIndex = 13;
             this.NetExpanse.Text = "$0.00";
-            // 
-            // OperatingExpanse
-            // 
-            this.OperatingExpanse.AutoSize = true;
-            this.OperatingExpanse.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OperatingExpanse.ForeColor = System.Drawing.Color.Transparent;
-            this.OperatingExpanse.Location = new System.Drawing.Point(379, 103);
-            this.OperatingExpanse.Name = "OperatingExpanse";
-            this.OperatingExpanse.Size = new System.Drawing.Size(90, 42);
-            this.OperatingExpanse.TabIndex = 12;
-            this.OperatingExpanse.Text = "$0.00";
             // 
             // TotalsExpanse
             // 
             this.TotalsExpanse.AutoSize = true;
             this.TotalsExpanse.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalsExpanse.ForeColor = System.Drawing.Color.Transparent;
-            this.TotalsExpanse.Location = new System.Drawing.Point(379, 35);
+            this.TotalsExpanse.Location = new System.Drawing.Point(379, 59);
             this.TotalsExpanse.Name = "TotalsExpanse";
             this.TotalsExpanse.Size = new System.Drawing.Size(90, 42);
             this.TotalsExpanse.TabIndex = 11;
@@ -294,29 +279,18 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bahnschrift Condensed", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(64, 173);
+            this.label4.Location = new System.Drawing.Point(64, 150);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(182, 45);
             this.label4.TabIndex = 2;
             this.label4.Text = "Net Expanse :";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift Condensed", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(64, 100);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(261, 45);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Operating Expanse :";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Bahnschrift Condensed", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(64, 33);
+            this.label6.Location = new System.Drawing.Point(64, 57);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(213, 45);
             this.label6.TabIndex = 0;
@@ -326,7 +300,7 @@
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel3.BorderRadius = 15;
-            this.guna2Panel3.Controls.Add(this.label8);
+            this.guna2Panel3.Controls.Add(this.lbTotalsIn);
             this.guna2Panel3.Controls.Add(this.label9);
             this.guna2Panel3.FillColor = System.Drawing.Color.MediumVioletRed;
             this.guna2Panel3.Location = new System.Drawing.Point(890, 706);
@@ -334,16 +308,16 @@
             this.guna2Panel3.Size = new System.Drawing.Size(321, 235);
             this.guna2Panel3.TabIndex = 4;
             // 
-            // label8
+            // lbTotalsIn
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Bahnschrift Condensed", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(120, 123);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 45);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "$0.00";
+            this.lbTotalsIn.AutoSize = true;
+            this.lbTotalsIn.Font = new System.Drawing.Font("Bahnschrift Condensed", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalsIn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbTotalsIn.Location = new System.Drawing.Point(120, 123);
+            this.lbTotalsIn.Name = "lbTotalsIn";
+            this.lbTotalsIn.Size = new System.Drawing.Size(83, 45);
+            this.lbTotalsIn.TabIndex = 1;
+            this.lbTotalsIn.Text = "$0.00";
             // 
             // label9
             // 
@@ -360,7 +334,7 @@
             // 
             this.guna2Panel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel4.BorderRadius = 15;
-            this.guna2Panel4.Controls.Add(this.label7);
+            this.guna2Panel4.Controls.Add(this.lbTotalsEx);
             this.guna2Panel4.Controls.Add(this.label10);
             this.guna2Panel4.FillColor = System.Drawing.Color.MediumVioletRed;
             this.guna2Panel4.Location = new System.Drawing.Point(1276, 706);
@@ -368,16 +342,16 @@
             this.guna2Panel4.Size = new System.Drawing.Size(321, 235);
             this.guna2Panel4.TabIndex = 5;
             // 
-            // label7
+            // lbTotalsEx
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Bahnschrift Condensed", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(120, 123);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 45);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "$0.00";
+            this.lbTotalsEx.AutoSize = true;
+            this.lbTotalsEx.Font = new System.Drawing.Font("Bahnschrift Condensed", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalsEx.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbTotalsEx.Location = new System.Drawing.Point(120, 123);
+            this.lbTotalsEx.Name = "lbTotalsEx";
+            this.lbTotalsEx.Size = new System.Drawing.Size(83, 45);
+            this.lbTotalsEx.TabIndex = 1;
+            this.lbTotalsEx.Text = "$0.00";
             // 
             // label10
             // 
@@ -529,19 +503,17 @@
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbTotalsIn;
         private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbTotalsEx;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label NetProfit;
         private System.Windows.Forms.Label TotalsOperatingPro;
         private System.Windows.Forms.Label txtIncome;
         private System.Windows.Forms.Label NetExpanse;
-        private System.Windows.Forms.Label OperatingExpanse;
         private System.Windows.Forms.Label TotalsExpanse;
         private Guna.UI2.WinForms.Guna2ComboBox ComboO;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
